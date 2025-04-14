@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coder Facile - Apprendre le Développement Web & Cybersécurité</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7fc;
+      color: #333;
+    }
+
+    header {
+      background-color: #2d5be3;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
+
+    nav {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(to right, #e3f2fd, #ffffff);
+    }
+
+    .hero h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .hero button {
+      padding: 12px 25px;
+      font-size: 1em;
+      background-color: #2d5be3;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .hero button:hover {
+      background-color: #1c45ba;
+    }
+
+    .sections {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      padding: 40px 20px;
+      align-items: center;
+    }
+
+    @media (min-width: 700px) {
+      .sections {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+
+    .section {
+      background: white;
+      width: 90%;
+      max-width: 300px;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .section h2 {
+      margin-top: 0;
+      color: #2d5be3;
+    }
+
+    .section button {
+      margin-top: 15px;
+      padding: 10px 25px;
+      background-color: #2d5be3;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .section button:hover {
+      background-color: #1c45ba;
+    }
+
+    .avantages {
+      background: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .avantages h2 {
+      margin-bottom: 10px;
+      color: #2d5be3;
+    }
+
+    .avantages p {
+      font-size: 1.1em;
+    }
+
+    blockquote {
+      font-style: italic;
+      color: #555;
+      margin-top: 30px;
+    }
+
+    footer {
+      text-align: center;
+      background: #2d5be3;
+      color: white;
+      padding: 20px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Coder Facile</h1>
+    <nav>
+      <a href="#">Accueil</a>
+      <a href="#cours">Cours</a>
+      <a href="#exercices">Exercices</a>
+      <a href="#apropos">À propos</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Apprends gratuitement le Développement Web & la Cybersécurité</h1>
+    <button onclick="document.getElementById('cours').scrollIntoView({behavior: 'smooth'})">Commencer maintenant</button>
+  </section>
+  
+  <div style="text-align: center; padding: 20px;">
+    <a href=https://www.checkout-ds24.com/redir/574434/Ousseynou/ target="_blank" 
+       style="display: inline-block; max-width: 90%; width: 280px; padding: 15px 20px; font-size: 1rem; background-color: #2d5be3; color: #fff; text-align: center; border-radius: 10px; text-decoration: none; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      📘 Voir le produit recommandé
+    </a>
+  </div>
+  
+  <section class="sections" id="cours">
+    <div class="section">
+      <h2>Développement Web</h2>
+      <p>HTML, CSS, JavaScript, responsive design, projets réels pour pratiquer...</p>
+      <button onclick="window.location.href='cours-web.html'">Voir les cours</button>
+    </div>
+    <div class="section">
+      <h2>Cybersécurité</h2>
+      <p>Comprendre les attaques, se protéger, utiliser les outils d'analyse et de défense.</p>
+      <button onclick="window.location.href='cours-cyber.html'">Voir les cours</button>
+    </div>
+  </section>
+
+  <section class="avantages" id="apropos">
+    <h2>Pourquoi choisir Coder Facile ?</h2>
+    <p>✅ Gratuit<br>✅ Sans inscription<br>✅ Cours détaillés et simples</p>
+    <blockquote>"Même sans prof, j’ai appris à coder avec ce site. Merci !"</blockquote>
+  </section>
+
+  <footer>
+    <p>
+      <a href="mailto:Ousseynound165@gmail.com">📩 Contactez-nous</a><br />
+      Réseaux sociaux – © 2025 Coder Facile
+    </p>
+  </footer>
+
+</body>
+</html>

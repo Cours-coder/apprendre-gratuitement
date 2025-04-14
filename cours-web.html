@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cours Développement Web - Coder Facile</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --secondary-color: #f8fafc;
+      --accent-color: #4f46e5;
+      --accent-dark: #4338ca;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      padding: 60px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .chapter-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+
+    .chapter-block h3 {
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      color: var(--accent-dark);
+      text-align: center;
+    }
+
+    .btn-toggle {
+      background: linear-gradient(to right, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 16px 50px;
+      font-size: 1.1em;
+      border-radius: 40px;
+      cursor: pointer;
+      margin: 10px;
+      transition: transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      width: 70%;
+      text-align: center;
+    }
+
+    .btn-toggle:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+    }
+
+    .toggle-content {
+      display: none;
+      margin-top: 20px;
+      background-color: #f1f5f9;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+      width: 90%;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: var(--primary-color);
+      color: white;
+      font-size: 0.9em;
+    }
+  </style>
+  <script>
+    function toggleContent(id) {
+      const content = document.getElementById(id);
+      const allContents = document.querySelectorAll('.toggle-content');
+      allContents.forEach(el => {
+        if (el.id !== id) el.style.display = 'none';
+      });
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Cours Développement Web</h1>
+    <p>Apprends HTML, CSS et JavaScript pas à pas</p>
+  </header>
+  <main>
+    <section class="section">
+      <h2>Choisis un Chapitre</h2>
+
+      <div class="chapter-block">
+        <h3>Chapitre 1 : Initiation à l’algorithmique</h3>
+        <button class="btn-toggle" onclick="toggleContent('chap0-cours')">Cours</button>
+        <div id="chap0-cours" class="toggle-content"><h2>1. Qu’est-ce qu’un algorithme ?</h2>
+          <p>Un algorithme est une suite finie d’étapes ordonnées permettant de résoudre un problème ou d’effectuer une tâche.<br>
+          Il est indépendant du langage de programmation et peut être exprimé en langage naturel, pseudo-code ou diagramme.</p>
+          
+          <h3>Exemple :</h3>
+          <pre>
+          1. Prendre deux tranches de pain
+          2. Ajouter du fromage
+          3. Ajouter du jambon
+          4. Refermer le sandwich
+          5. Manger
+          </pre>
+          
+          <h2>2. Pourquoi apprendre l’algorithmique ?</h2>
+          <ul>
+            <li>Pour apprendre à raisonner logiquement</li>
+            <li>Pour résoudre efficacement des problèmes</li>
+            <li>Pour structurer sa pensée</li>
+            <li>Pour faciliter l’apprentissage de la programmation</li>
+          </ul>
+          
+          <h2>3. Les éléments de base d’un algorithme</h2>
+          
+          <h3>a) Instructions</h3>
+          <p>Ce sont les actions exécutées : affecter, afficher, lire, calculer, etc.</p>
+          <pre>
+          x ← 5
+          Afficher x
+          </pre>
+          
+          <h3>b) Les structures fondamentales</h3>
+          
+          <h4>i. Séquence</h4>
+          <p>Les instructions sont exécutées les unes après les autres.</p>
+          <pre>
+          a ← 2
+          b ← 3
+          c ← a + b
+          Afficher c
+          </pre>
+          
+          <h4>ii. Condition (ou sélection)</h4>
+          <pre>
+          si âge ≥ 18 alors
+             Afficher "Majeur"
+          sinon
+             Afficher "Mineur"
+          </pre>
+          
+          <h4>iii. Itération (boucles)</h4>
+          <pre>
+          pour i de 1 à 10 faire
+             Afficher i
+          fin pour
+          </pre>
+          
+          <h2>4. Variables et types de données</h2>
+          
+          <h3>a) Définition d’une variable</h3>
+          <p>Une variable est un nom associé à une valeur stockée en mémoire.</p>
+          <pre>
+          nom ← "Ousmane"
+          âge ← 20
+          </pre>
+          
+          <h3>b) Types de données courants</h3>
+          <ul>
+            <li>Entier : 1, 2, -3, 120</li>
+            <li>Réel : 3.14, -2.5</li>
+            <li>Booléen : vrai, faux</li>
+            <li>Caractère : 'A', 'z'</li>
+            <li>Chaîne : "Bonjour", "123"</li>
+          </ul>
+          
+          <h2>5. Instructions utiles en pseudo-code</h2>
+          <ul>
+            <li>Lire une valeur saisie par l’utilisateur : <code>Lire nom</code></li>
+            <li>Afficher une valeur ou un message : <code>Afficher "Bonjour"</code>, <code>Afficher nom</code></li>
+            <li>Affecter une valeur à une variable : <code>x ← 10</code></li>
+          </ul>
+          
+          <h2>6. Conditions logiques</h2>
+          <p>On peut combiner les conditions avec :</p>
+          <ul>
+            <li>ET : les deux conditions doivent être vraies</li>
+            <li>OU : au moins une condition doit être vraie</li>
+            <li>NON : inverse la condition</li>
+          </ul>
+          <pre>
+          si (âge > 18 ET pays = "Sénégal") alors
+             Afficher "Autorisé"
+          </pre>
+          
+          <h2>7. Les boucles (itérations)</h2>
+          
+          <h3>a) Boucle POUR</h3>
+          <pre>
+          pour i de 1 à 5 faire
+             Afficher i
+          fin pour
+          </pre>
+          
+          <h3>b) Boucle TANT QUE</h3>
+          <pre>
+          tant que n ≠ 0 faire
+             Afficher n
+             Lire n
+          fin tant que
+          </pre>
+          
+          <h2>8. Bonnes pratiques</h2>
+          <ul>
+            <li>Utiliser des noms de variables explicites</li>
+            <li>Bien structurer son algorithme</li>
+            <li>Tester avec plusieurs cas</li>
+            <li>Commenter si nécessaire</li>
+          </ul>
+          
+          <h2>9. Récapitulatif des notions</h2>
+          <ul>
+            <li>Algorithme : suite d’étapes ordonnées</li>
+            <li>Instruction : action de base</li>
+            <li>Variable : conteneur de valeur</li>
+            <li>Condition : permet un choix</li>
+            <li>Boucle : permet une répétition</li>
+            <li>Pseudo-code : écriture proche du langage naturel</li>
+          </ul>
+          
+          <h2>FIN DU COURS</h2>
+          </div> 
+        <button class="btn-toggle" onclick="toggleContent('chap0-exo')">Exercices</button>
+        <div id="chap0-exo" class="toggle-content"><h2>Exercices - Initiation à l’algorithmique</h2>
+
+          <h3>Exercice 1 : Gestion d’un panier d’achat</h3>
+          <p>
+          Un commerçant souhaite informatiser le calcul du montant total à payer par un client.
+          L’algorithme devra :
+          </p>
+          <ul>
+            <li>Demander à l'utilisateur combien d’articles il souhaite acheter</li>
+            <li>Pour chaque article, demander le prix unitaire et la quantité</li>
+            <li>Calculer le montant total à payer</li>
+            <li>Afficher le résultat</li>
+          </ul>
+          <p>Bonus : Ajouter une remise de 10% si le montant dépasse 10000 FCFA.</p>
+          
+          <h3>Exercice 2 : Système de notes et validation</h3>
+          <p>
+          On souhaite créer un algorithme qui :
+          </p>
+          <ul>
+            <li>Demande à l'utilisateur d'entrer les notes de 5 matières</li>
+            <li>Calcule la moyenne</li>
+            <li>Affiche "Admis" si la moyenne est supérieure ou égale à 10</li>
+            <li>Sinon, affiche "Échec"</li>
+          </ul>
+          <p>Bonus : Afficher une mention si l'étudiant est admis :</p>
+          <ul>
+            <li>10 ≤ moyenne &lt; 12 : Passable</li>
+            <li>12 ≤ moyenne &lt; 14 : Assez bien</li>
+            <li>14 ≤ moyenne &lt; 16 : Bien</li>
+            <li>16 ≤ moyenne : Très bien</li>
+          </ul>
+          
+          <hr>
+          
+          <h2>Corrigés</h2>
+          
+          <h3>Correction Exercice 1</h3>
+          <pre>
+          Début
+             total ← 0
+             Lire nb_articles
+             Pour i de 1 à nb_articles faire
+                Lire prix
+                Lire quantité
+                total ← total + (prix * quantité)
+             FinPour
+             Si total > 10000 alors
+                remise ← total * 0.10
+                total ← total - remise
+             FinSi
+             Afficher "Montant total à payer :", total
+          Fin
+          </pre>
+          
+          <h3>Correction Exercice 2</h3>
+          <pre>
+          Début
+             somme ← 0
+             Pour i de 1 à 5 faire
+                Lire note
+                somme ← somme + note
+             FinPour
+             moyenne ← somme / 5
+             Si moyenne ≥ 10 alors
+                Afficher "Admis"
+                Si moyenne < 12 alors
+                   Afficher "Mention : Passable"
+                Sinon Si moyenne < 14 alors
+                   Afficher "Mention : Assez bien"
+                Sinon Si moyenne < 16 alors
+                   Afficher "Mention : Bien"
+                Sinon
+                   Afficher "Mention : Très bien"
+                FinSi
+             Sinon
+                Afficher "Échec"
+             FinSi
+          Fin
+          </pre>
+          </div>
+      </div>
+
+      <div class="chapter-block">
+        <h3>Chapitre 2 : Initiation à la programmation </h3>
+        <button class="btn-toggle" onclick="toggleContent('chap1-cours')">Cours</button>
+        <div id="chap1-cours" class="toggle-content"><h2>Chapitre 2 : Initiation à la programmation</h2>
+
+          <h3>1. Qu’est-ce que la programmation ?</h3>
+          <p>
+          La programmation consiste à écrire des instructions dans un langage compréhensible par un ordinateur pour qu’il exécute une tâche précise. C’est un moyen de communiquer avec la machine, pour lui dire quoi faire, comment et quand le faire.
+          </p>
+          <p>
+          Une suite d’instructions est appelée un programme. Ces instructions doivent respecter les règles de syntaxe du langage utilisé.
+          </p>
+          
+          <h3>2. Langages de programmation</h3>
+          <p>
+          Il existe de nombreux langages de programmation. Certains sont basiques, d’autres très complexes, mais tous permettent d’automatiser des tâches. Exemples de langages :
+          </p>
+          <ul>
+            <li><strong>Python</strong> – Simple et puissant, idéal pour les débutants</li>
+            <li><strong>JavaScript</strong> – Utilisé pour les pages web interactives</li>
+            <li><strong>C / C++</strong> – Performants, souvent utilisés en systèmes et jeux</li>
+            <li><strong>Java</strong> – Très utilisé en entreprise</li>
+          </ul>
+          
+          <h3>3. Structure de base d’un programme</h3>
+          <p>
+          Un programme simple suit une structure logique :
+          </p>
+          <ul>
+            <li>Déclaration des variables</li>
+            <li>Entrée des données (via le clavier par exemple)</li>
+            <li>Traitement des données (calculs, conditions, boucles...)</li>
+            <li>Affichage des résultats</li>
+          </ul>
+          <p>
+          Voici un exemple en pseudo-code :
+          </p>
+          <pre>
+          Début
+            Lire a
+            Lire b
+            somme ← a + b
+            Afficher somme
+          Fin
+          </pre>
+          
+          <h3>4. Les variables</h3>
+          <p>
+          Une variable est un espace mémoire nommé qui contient une valeur. Elle peut changer au cours de l’exécution du programme.
+          </p>
+          <p>Exemples :</p>
+          <ul>
+            <li><strong>entier</strong> : nombres entiers (ex : 5, -2, 100)</li>
+            <li><strong>réel</strong> : nombres décimaux (ex : 3.14)</li>
+            <li><strong>chaîne</strong> : texte (ex : "Bonjour")</li>
+          </ul>
+          
+          <h3>5. Les instructions de base</h3>
+          
+          <h4>5.1. Lecture</h4>
+          <p>
+          Permet de lire une donnée saisie par l’utilisateur. Exemple :
+          </p>
+          <pre>
+          Lire nom
+          </pre>
+          
+          <h4>5.2. Affectation</h4>
+          <p>
+          Attribuer une valeur à une variable :
+          </p>
+          <pre>
+          x ← 10
+          </pre>
+          
+          <h4>5.3. Affichage</h4>
+          <p>
+          Afficher une information à l’écran :
+          </p>
+          <pre>
+          Afficher "Bienvenue"
+          </pre>
+          
+          <h3>6. Les conditions</h3>
+          <p>
+          Elles permettent de prendre une décision selon un test logique.
+          </p>
+          <pre>
+          Si note ≥ 10 alors
+             Afficher "Admis"
+          Sinon
+             Afficher "Échec"
+          FinSi
+          </pre>
+          
+          <h3>7. Les boucles</h3>
+          <p>
+          Elles permettent de répéter une action plusieurs fois.
+          </p>
+          
+          <h4>7.1. Boucle Pour</h4>
+          <pre>
+          Pour i de 1 à 5 faire
+             Afficher i
+          FinPour
+          </pre>
+          
+          <h4>7.2. Boucle Tant que</h4>
+          <pre>
+          Tant que x ≠ 0 faire
+             Lire x
+          FinTantQue
+          </pre>
+          
+          <h3>8. Fonctions et procédures (notion avancée)</h3>
+          <p>
+          Une fonction est un bloc de code qui exécute une tâche et retourne une valeur.
+          </p>
+          <pre>
+          Fonction carré(n)
+             retourner n * n
+          FinFonction
+          </pre>
+          
+          <p>
+          Une procédure, elle, ne retourne rien mais peut afficher ou modifier des variables.
+          </p>
+          
+          <h3>9. Erreurs fréquentes en programmation</h3>
+          <ul>
+            <li><strong>Erreurs de syntaxe</strong> : oublier un mot-clé, une parenthèse, etc.</li>
+            <li><strong>Erreurs logiques</strong> : le programme s’exécute mais ne donne pas le bon résultat</li>
+            <li><strong>Erreurs d’exécution</strong> : division par zéro, variable non initialisée, etc.</li>
+          </ul>
+          
+          <h3>10. Conseils pour bien débuter</h3>
+          <ul>
+            <li>Commencer par des programmes simples</li>
+            <li>Utiliser un langage facile comme Python</li>
+            <li>Tester souvent le code, ligne par ligne</li>
+            <li>Lire les messages d’erreur attentivement</li>
+            <li>Être patient et persévérant</li>
+          </ul>
+          </div>
+        <button class="btn-toggle" onclick="toggleContent('chap1-exo')">Exercices</button>
+        <div id="chap1-exo" class="toggle-content"><h3>Exercices sur l'initiation à la programmation</h3>
+
+          <h4>Exercice 1 : Calculer la somme de deux nombres</h4>
+          <p>
+          Écrire un programme qui demande à l'utilisateur de saisir deux nombres et affiche leur somme. Le programme doit afficher un message d'erreur si l'un des nombres saisis n'est pas un nombre valide.
+          </p>
+          
+          <h5>Correction</h5>
+          <pre>
+          Début
+            Afficher "Entrez le premier nombre : "
+            Lire a
+            Si a n'est pas un nombre alors
+               Afficher "Erreur : vous devez entrer un nombre valide"
+               Fin
+            FinSi
+          
+            Afficher "Entrez le deuxième nombre : "
+            Lire b
+            Si b n'est pas un nombre alors
+               Afficher "Erreur : vous devez entrer un nombre valide"
+               Fin
+            FinSi
+          
+            somme ← a + b
+            Afficher "La somme des deux nombres est : ", somme
+          Fin
+          </pre>
+          
+          <h4>Exercice 2 : Calculer la moyenne de plusieurs notes</h4>
+          <p>
+          Écrire un programme qui demande à l'utilisateur de saisir plusieurs notes (le nombre de notes est inconnu). Le programme doit afficher la moyenne des notes et afficher un message "Réussi" si la moyenne est supérieure ou égale à 10, sinon "Échec".
+          </p>
+          
+          <h5>Correction</h5>
+          <pre>
+          Début
+            total ← 0
+            compteur ← 0
+          
+            Répéter
+              Afficher "Entrez une note (ou -1 pour terminer) : "
+              Lire note
+              Si note = -1 alors
+                Sortir
+              FinSi
+              total ← total + note
+              compteur ← compteur + 1
+            Jusqu'à ce que note = -1
+          
+            Si compteur > 0 alors
+              moyenne ← total / compteur
+              Afficher "La moyenne des notes est : ", moyenne
+              Si moyenne ≥ 10 alors
+                 Afficher "Réussi"
+              Sinon
+                 Afficher "Échec"
+              FinSi
+            Sinon
+              Afficher "Aucune note saisie"
+            FinSi
+          Fin
+          </pre>
+          
+          <h4>Exercice 3 : Trouver le plus grand nombre parmi trois</h4>
+          <p>
+          Écrire un programme qui demande à l'utilisateur de saisir trois nombres et qui affiche le plus grand parmi ces trois nombres.
+          </p>
+          
+          <h5>Correction</h5>
+          <pre>
+          Début
+            Afficher "Entrez le premier nombre : "
+            Lire a
+            Afficher "Entrez le deuxième nombre : "
+            Lire b
+            Afficher "Entrez le troisième nombre : "
+            Lire c
+          
+            Si a ≥ b et a ≥ c alors
+              Afficher "Le plus grand nombre est : ", a
+            SinonSi b ≥ a et b ≥ c alors
+              Afficher "Le plus grand nombre est : ", b
+            Sinon
+              Afficher "Le plus grand nombre est : ", c
+            FinSi
+          Fin
+          </pre>
+          
+          <h4>Exercice 4 : Calculer la factorielle d’un nombre</h4>
+          <p>
+          Écrire un programme qui demande à l'utilisateur de saisir un nombre entier positif et qui calcule sa factorielle (n!). La factorielle de n est le produit de tous les entiers de 1 à n.
+          </p>
+          
+          <h5>Correction</h5>
+          <pre>
+          Début
+            Afficher "Entrez un nombre entier positif : "
+            Lire n
+            fact ← 1
+          
+            Si n < 0 alors
+              Afficher "Erreur : la factorielle est définie pour les entiers positifs"
+            Sinon
+              Pour i de 1 à n faire
+                fact ← fact * i
+              FinPour
+              Afficher "La factorielle de ", n, " est : ", fact
+            FinSi
+          Fin
+          </pre>
+          
+          <h4>Exercice 5 : Vérifier si un nombre est pair ou impair</h4>
+          <p>
+          Écrire un programme qui demande à l'utilisateur de saisir un nombre entier et qui affiche si le nombre est pair ou impair.
+          </p>
+          
+          <h5>Correction</h5>
+          <pre>
+          Début
+            Afficher "Entrez un nombre entier : "
+            Lire n
+          
+            Si n mod 2 = 0 alors
+              Afficher "Le nombre ", n, " est pair."
+            Sinon
+              Afficher "Le nombre ", n, " est impair."
+            FinSi
+          Fin
+          </pre>
+          
+          <h4>Exercice 6 : Compter les voyelles dans une chaîne de caractères</h4>
+          <p>
+          Écrire un programme qui demande à l'utilisateur de saisir une chaîne de caractères et qui compte le nombre de voyelles (a, e, i, o, u) présentes dans cette chaîne.
+          </p>
+          
+          <h5>Correction</h5>
+          <pre>
+          Début
+            Afficher "Entrez une chaîne de caractères : "
+            Lire chaine
+            compteur_voyelles ← 0
+          
+            Pour chaque caractère c dans chaine faire
+              Si c = "a" ou c = "e" ou c = "i" ou c = "o" ou c = "u" alors
+                compteur_voyelles ← compteur_voyelles + 1
+              FinSi
+            FinPour
+          
+            Afficher "Le nombre de voyelles dans la chaîne est : ", compteur_voyelles
+          Fin
+          </pre>
+          
+          <h3>Fin des exercices</h3>
+          </div>
+      </div>
+
+      <div class="chapter-block">
+        <h3>Chapitre 4 : JavaScript</h3>
+        <button class="btn-toggle" onclick="toggleContent('chap3-cours')">Cours</button>
+        <div id="chap3-cours" class="toggle-content"><h4>Introduction à JavaScript</h4>
+          <p>
+            JavaScript est un langage de programmation utilisé principalement pour créer des pages web interactives. 
+            Il est exécuté par le navigateur web et permet d'ajouter de la logique dynamique dans des pages HTML.
+            JavaScript est un langage interprété, ce qui signifie qu'il est exécuté ligne par ligne, sans nécessiter de compilation préalable.
+          </p>
+      
+          <h4>1. Syntaxe de base</h4>
+          <p>
+            JavaScript utilise une syntaxe qui ressemble à d'autres langages de programmation comme C, Java, ou Python. 
+            Les instructions JavaScript sont séparées par des points-virgules (`;`), bien que ce ne soit pas obligatoire dans tous les cas.
+          </p>
+          <pre>
+            let message = "Bonjour, JavaScript !"; // Déclaration d'une variable
+            console.log(message); // Affiche le message dans la console
+          </pre>
+      
+          <h4>2. Variables et types de données</h4>
+          <p>
+            En JavaScript, les variables peuvent être déclarées avec `let`, `const`, ou `var`. La différence réside dans la portée de la variable et si elle peut être modifiée après sa déclaration.
+          </p>
+          <h5>Exemples de types de données :</h5>
+          <ul>
+            <li><strong>String</strong> : Chaîne de caractères</li>
+            <li><strong>Number</strong> : Nombres, entiers ou à virgule flottante</li>
+            <li><strong>Boolean</strong> : Vrai ou faux</li>
+            <li><strong>Array</strong> : Liste de valeurs</li>
+            <li><strong>Object</strong> : Objet avec des propriétés et des valeurs</li>
+          </ul>
+          <pre>
+            let age = 25; // Nombre
+            let nom = "John"; // String
+            let estEtudiant = true; // Boolean
+            let fruits = ["pomme", "banane", "orange"]; // Array
+            let personne = { nom: "Alice", age: 30 }; // Object
+          </pre>
+      
+          <h4>3. Structures de contrôle</h4>
+          <p>
+            JavaScript propose des structures conditionnelles et des boucles pour contrôler l'exécution du programme en fonction de certaines conditions ou pour répéter des actions.
+          </p>
+      
+          <h5>3.1 Condition if</h5>
+          <pre>
+            let nombre = 10;
+            if (nombre > 5) {
+              console.log("Le nombre est plus grand que 5");
+            } else {
+              console.log("Le nombre est inférieur ou égal à 5");
+            }
+          </pre>
+      
+          <h5>3.2 Boucle for</h5>
+          <pre>
+            for (let i = 0; i < 5; i++) {
+              console.log(i); // Affiche les nombres de 0 à 4
+            }
+          </pre>
+      
+          <h4>4. Fonctions</h4>
+          <p>
+            Une fonction est un bloc de code qui effectue une tâche particulière. Elle peut être appelée plusieurs fois dans un programme pour exécuter une même tâche.
+          </p>
+          <pre>
+            function addition(a, b) {
+              return a + b;
+            }
+            let resultat = addition(5, 3); // Appel de la fonction
+            console.log(resultat); // Affiche 8
+          </pre>
+      
+          <h4>5. Événements et DOM</h4>
+          <p>
+            Le DOM (Document Object Model) est une interface qui permet d'interagir avec la structure HTML d'une page web. JavaScript permet de modifier le contenu, les styles, et de réagir aux événements utilisateurs.
+          </p>
+      
+          <h5>5.1 Sélection d'éléments</h5>
+          <pre>
+            let titre = document.getElementById("monTitre");
+            titre.innerHTML = "Bonjour, JavaScript !"; // Change le contenu de l'élément avec l'id "monTitre"
+          </pre>
+      
+          <h5>5.2 Ajouter un événement</h5>
+          <pre>
+            let bouton = document.getElementById("monBouton");
+            bouton.addEventListener("click", function() {
+              alert("Le bouton a été cliqué !");
+            });
+          </pre>
+      
+          <h4>6. Conclusion</h4>
+          <p>
+            JavaScript est un langage puissant pour le développement web. Il permet d’ajouter des interactions dynamiques et est un incontournable pour tout développeur web.
+          </p></div>
+        <button class="btn-toggle" onclick="toggleContent('chap3-exo')">Exercices</button>
+        <div id="chap3-exo" class="toggle-content"> <h4>Exercice 1 : Affichage simple</h4>
+          <p><strong>Objectif :</strong> Créer un script JavaScript qui affiche un message dans la console.</p>
+          <p>Instructions : Créez un fichier HTML contenant un script JavaScript qui affiche le message suivant dans la console : <code>"Bienvenue dans le monde de JavaScript !"</code>.</p>
+          
+          <hr>
+          
+          <h4>Exercice 2 : Variables et opérations</h4>
+          <p><strong>Objectif :</strong> Manipuler des variables et effectuer des opérations simples.</p>
+          <p>Instructions : Écrivez un programme JavaScript qui :</p>
+          <ul>
+            <li>Déclare deux variables : <code>nombre1</code> et <code>nombre2</code></li>
+            <li>Stocke respectivement les valeurs 10 et 5</li>
+            <li>Calcule leur somme, différence, produit, et quotient</li>
+            <li>Affiche les résultats dans la console</li>
+          </ul>
+          
+          <hr>
+          
+          <h4>Exercice 3 : Conditions</h4>
+          <p><strong>Objectif :</strong> Maîtriser les structures conditionnelles.</p>
+          <p>Instructions : Demandez à l’utilisateur d’entrer un nombre avec <code>prompt()</code>, puis :</p>
+          <ul>
+            <li>Affichez si ce nombre est pair ou impair</li>
+          </ul>
+          
+          <hr>
+          
+          <h4>Exercice 4 : Boucles</h4>
+          <p><strong>Objectif :</strong> Utiliser une boucle pour répéter une tâche.</p>
+          <p>Instructions : Écrivez un programme qui affiche les nombres de 1 à 10 dans la console à l’aide d’une boucle <code>for</code>.</p>
+          
+          <hr>
+          
+          <h4>Exercice 5 : Fonctions</h4>
+          <p><strong>Objectif :</strong> Créer et utiliser une fonction en JavaScript.</p>
+          <p>Instructions : Créez une fonction appelée <code>carre()</code> qui prend un nombre en paramètre et retourne son carré. Testez la fonction avec la valeur 7.</p>
+          
+          <hr>
+          
+          <h3>Correction des exercices JavaScript</h3>
+          
+          <h4>Correction Exercice 1 :</h4>
+          <pre><code>console.log("Bienvenue dans le monde de JavaScript !");</code></pre>
+          
+          <h4>Correction Exercice 2 :</h4>
+          <pre><code>
+          let nombre1 = 10;
+          let nombre2 = 5;
+          
+          console.log("Somme :", nombre1 + nombre2);
+          console.log("Différence :", nombre1 - nombre2);
+          console.log("Produit :", nombre1 * nombre2);
+          console.log("Quotient :", nombre1
+          </div>
+      </div>
+
+      <div class="chapter-block">
+        <h3>Chapitre 4 : Introduction au web</h3>
+        <button class="btn-toggle" onclick="toggleContent('chap4-cours')">Cours</button>
+        <div id="chap4-cours" class="toggle-content"><h4>Définition du Web</h4>
+          <p>Le mot "Web" vient de l’anglais "World Wide Web" (WWW), qui signifie littéralement "toile d’araignée mondiale". Il s'agit d’un système hypertexte fonctionnant sur Internet, permettant la consultation de pages via des navigateurs web comme Google Chrome, Mozilla Firefox, Safari, etc.</p>
+          
+          <h4>Différence entre Internet et le Web</h4>
+          <p>Beaucoup de personnes confondent le Web et Internet. Internet est l'infrastructure, c’est-à-dire l’ensemble des réseaux et des connexions. Le Web est un service qui utilise Internet pour fonctionner. Par exemple, les e-mails, les jeux en ligne, la messagerie instantanée sont d'autres services qui passent par Internet, mais qui ne font pas partie du Web.</p>
+          
+          <h4>Historique du Web</h4>
+          <p>Le Web a été inventé en 1989 par Tim Berners-Lee, un chercheur au CERN (Organisation européenne pour la recherche nucléaire). Son objectif était de permettre aux scientifiques d’échanger facilement des informations. En 1991, le Web devient public. Depuis, il a connu une croissance spectaculaire, devenant un outil indispensable dans tous les domaines.</p>
+          
+          <h4>Fonctionnement du Web</h4>
+          <p>Le Web fonctionne selon un principe client-serveur :</p>
+          <ul>
+            <li>Le <strong>client</strong> est le navigateur utilisé par l’internaute (ex : Chrome, Firefox).</li>
+            <li>Le <strong>serveur</strong> est un ordinateur distant qui héberge des pages web.</li>
+          </ul>
+          <p>Lorsqu’un utilisateur tape une adresse dans son navigateur (ex : www.google.com), le navigateur envoie une requête au serveur correspondant. Le serveur répond en envoyant le contenu demandé (souvent du HTML, CSS, JS), qui est ensuite affiché dans le navigateur.</p>
+          
+          <h4>Les technologies du Web</h4>
+          <p>Le Web repose sur plusieurs technologies :</p>
+          <ul>
+            <li><strong>HTML (HyperText Markup Language)</strong> : le langage de base pour structurer une page web.</li>
+            <li><strong>CSS (Cascading Style Sheets)</strong> : utilisé pour styliser et mettre en forme les pages HTML.</li>
+            <li><strong>JavaScript</strong> : un langage de programmation qui permet de rendre les pages interactives.</li>
+            <li><strong>Serveurs Web</strong> : logiciels comme Apache ou Nginx qui gèrent les requêtes et livrent les pages web aux clients.</li>
+          </ul>
+          
+          <h4>URL (Uniform Resource Locator)</h4>
+          <p>Une URL est l'adresse d'une ressource sur le Web. Exemple : https://www.example.com. Elle est composée de plusieurs parties :</p>
+          <ul>
+            <li><strong>Le protocole</strong> : http ou https</li>
+            <li><strong>Le nom de domaine</strong> : www.example.com</li>
+            <li><strong>Le chemin d'accès</strong> : /page/contact.html</li>
+          </ul>
+          
+          <h4>Le rôle des navigateurs web</h4>
+          <p>Un navigateur web est un logiciel qui permet de visiter des sites internet. Il interprète le code HTML, CSS, JavaScript envoyé par les serveurs, et l’affiche sous forme visuelle. Exemples de navigateurs : Google Chrome, Mozilla Firefox, Microsoft Edge, Safari.</p>
+          
+          <h4>Les moteurs de recherche</h4>
+          <p>Un moteur de recherche est un outil qui permet de retrouver des sites ou des pages web. Il fonctionne grâce à des robots appelés crawlers qui parcourent Internet pour indexer les pages. Exemples : Google, Bing, Yahoo, DuckDuckGo.</p>
+          
+          <h4>Les types de sites web</h4>
+          <p>On distingue plusieurs types de sites web :</p>
+          <ul>
+            <li><strong>Sites vitrines</strong> : présentent une entreprise ou une activité, sans fonctionnalités avancées.</li>
+            <li><strong>Sites e-commerce</strong> : permettent la vente de produits ou services en ligne.</li>
+            <li><strong>Blogs</strong> : plateformes de publication d’articles.</li>
+            <li><strong>Réseaux sociaux</strong> : permettent l’interaction entre utilisateurs (ex : Facebook, Twitter).</li>
+          </ul>
+          
+          <h4>Le responsive design</h4>
+          <p>Avec l’essor des smartphones et tablettes, il est important que les sites s’adaptent à toutes les tailles d’écran. Le "responsive design" est une méthode de conception web qui rend les pages compatibles avec tous les supports (ordinateur, téléphone, tablette).</p>
+          
+          <h4>Les métiers du Web</h4>
+          <p>Voici quelques métiers liés au développement web :</p>
+          <ul>
+            <li><strong>Développeur Front-End</strong> : conçoit l’interface visible par les utilisateurs.</li>
+            <li><strong>Développeur Back-End</strong> : gère les fonctionnalités côté serveur (bases de données, sécurité, etc.).</li>
+            <li><strong>Web designer</strong> : s’occupe de l’aspect graphique du site.</li>
+            <li><strong>Intégrateur web</strong> : transforme les maquettes graphiques en code HTML/CSS.</li>
+          </ul>
+          
+          <h4>Conclusion</h4>
+          <p>Le Web est aujourd’hui un outil incontournable dans la vie quotidienne, que ce soit pour la communication, le travail, le commerce ou le divertissement. Sa compréhension est essentielle pour tout développeur débutant.</p>
+          </div>
+        <button class="btn-toggle" onclick="toggleContent('chap4-exo')">Exercices</button>
+        <div id="chap4-exo" class="toggle-content"><h4>Exercice 1 : Comprendre les bases du Web</h4>
+          <p><strong>Objectif :</strong> Vérifier la compréhension des fondamentaux du Web.</p>
+          <p>Répondez aux questions suivantes :</p>
+          <ol>
+            <li>Quelle est la différence entre Internet et le Web ?</li>
+            <li>Qu'est-ce qu'un navigateur web ? Donnez deux exemples.</li>
+            <li>Qu’est-ce qu’un serveur web ?</li>
+            <li>À quoi sert le protocole HTTP ? Quelle est la différence avec HTTPS ?</li>
+            <li>Que signifie "URL" et à quoi sert-elle ? Donnez un exemple d’URL valide et décomposez ses parties.</li>
+          </ol>
+          
+          <hr>
+          
+          <h4>Exercice 2 : Explorer le fonctionnement d’un site Web</h4>
+          <p><strong>Objectif :</strong> Comprendre les interactions entre client, serveur, et réseau.</p>
+          <p>Scénario : Lorsqu’un utilisateur tape une adresse dans son navigateur, un ensemble d’actions se produit. Expliquez étape par étape ce qu’il se passe quand on accède à <code>https://www.wikipedia.org</code>.</p>
+          
+          <p>Votre réponse doit aborder les éléments suivants :</p>
+          <ul>
+            <li>Rôle du DNS</li>
+            <li>Rôle du navigateur</li>
+            <li>Rôle du serveur</li>
+            <li>Transfert des fichiers HTML/CSS</li>
+            <li>Affichage dans le navigateur</li>
+          </ul>
+          
+          <hr>
+          
+          <h4>Exercice 3 : Identifier les technologies du Web</h4>
+          <p><strong>Objectif :</strong> Distinguer les différentes technologies utilisées pour créer des sites web.</p>
+          <p>Associez chaque technologie à sa définition :</p>
+          <ol>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Serveur Web</li>
+            <li>Base de données</li>
+          </ol>
+          
+          <p>Définitions :</p>
+          <ul>
+            <li>A. Langage utilisé pour styliser l'apparence des pages web</li>
+            <li>B. Langage permettant de créer la structure d’une page Web</li>
+            <li>C. Système permettant de stocker et retrouver des données dynamiques</li>
+            <li>D. Logiciel hébergeant les sites Web et répondant aux requêtes des utilisateurs</li>
+            <li>E. Langage de programmation pour ajouter de l’interactivité à une page Web</li>
+          </ul>
+          
+          <hr>
+          
+          <h3>Correction des exercices</h3>
+          
+          <h4>Correction de l’exercice 1 :</h4>
+          <ol>
+            <li><strong>Internet</strong> est un réseau mondial qui connecte des ordinateurs, tandis que le <strong>Web</strong> est un service qui utilise ce réseau pour transmettre des pages web.</li>
+            <li>Un navigateur est un logiciel permettant de consulter des pages Web. Exemples : Google Chrome, Mozilla Firefox.</li>
+            <li>Un serveur web est un ordinateur (ou logiciel) qui héberge des sites web et répond aux requêtes des navigateurs.</li>
+            <li>HTTP est un protocole de communication. HTTPS est la version sécurisée (avec chiffrement des données).</li>
+            <li>URL signifie "Uniform Resource Locator" : c’est l’adresse d’une ressource sur le Web. Exemple : https://www.google.com. <br>
+              - Protocole : https <br>
+              - Nom de domaine : www.google.com
+            </li>
+          </ol>
+          
+          <hr>
+          
+          <h4>Correction de l’exercice 2 :</h4>
+          <ol>
+            <li>L’utilisateur entre l’URL dans son navigateur.</li>
+            <li>Le navigateur interroge le <strong>DNS</strong> pour obtenir l’adresse IP associée à <code>wikipedia.org</code>.</li>
+            <li>Le navigateur envoie une requête HTTP au <strong>serveur</strong>.</li>
+            <li>Le serveur renvoie les fichiers HTML, CSS, JavaScript.</li>
+            <li>Le navigateur interprète le tout et affiche la page.</li>
+          </ol>
+          
+          <hr>
+          
+          <h4>Correction de l’exercice 3 :</h4>
+          <ol>
+            <li>HTML → B. Langage permettant de structurer la page</li>
+            <li>CSS → A. Styliser l’apparence des pages web</li>
+            <li>JavaScript → E. Ajouter de l’interactivité</li>
+            <li>Serveur Web → D. Logiciel qui héberge le site</li>
+            <li>Base de données → C. Système de stockage d’informations</li>
+          </ol>
+          </div>
+      </div>
+
+      <div class="chapter-block">
+        <h3>Chapitre 5 : HTML/CSS</h3>
+        <button class="btn-toggle" onclick="toggleContent('chap5-cours')">Cours</button>
+        <div id="chap5-cours" class="toggle-content"> <h2>Chapitre 1 : HTML et CSS</h2>
+          <div>
+            <h3>1. Introduction à HTML</h3>
+            <p>HTML signifie HyperText Markup Language. C’est le langage utilisé pour créer la structure d’une page web. Il permet d’organiser le contenu : titres, paragraphes, images, liens, tableaux, formulaires, etc.</p>
+    
+            <h4>Structure de base d’un fichier HTML</h4>
+            <p>Un fichier HTML commence toujours par une déclaration <code>&lt;!DOCTYPE html&gt;</code> suivie de la balise racine <code>&lt;html&gt;</code>. À l’intérieur, on trouve deux parties principales : <code>&lt;head&gt;</code> (en-tête) et <code>&lt;body&gt;</code> (corps).</p>
+    
+            <h4>Exemple de structure HTML minimale :</h4>
+            <pre>
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;Ma première page&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;h1&gt;Bonjour, monde !&lt;/h1&gt;
+        &lt;p&gt;Ceci est un paragraphe de texte.&lt;/p&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+            </pre>
+    
+            <h4>Les principales balises HTML</h4>
+            <ul>
+              <li>&lt;h1&gt; à &lt;h6&gt; : Titres de différents niveaux</li>
+              <li>&lt;p&gt; : Paragraphe</li>
+              <li>&lt;a href=""&gt; : Lien hypertexte</li>
+              <li>&lt;img src="" alt=""&gt; : Image</li>
+              <li>&lt;ul&gt; et &lt;ol&gt; : Listes</li>
+              <li>&lt;div&gt; : Conteneur générique</li>
+              <li>&lt;span&gt; : Conteneur en ligne</li>
+            </ul>
+    
+            <h3>2. Introduction au CSS</h3>
+            <p>CSS signifie Cascading Style Sheets. Il permet de styliser une page HTML, c’est-à-dire d’ajouter des couleurs, des marges, des polices, des tailles, des arrière-plans, etc.</p>
+    
+            <h4>Trois façons d’intégrer du CSS :</h4>
+            <ul>
+              <li>En ligne : via l’attribut <code>style</code> dans la balise HTML</li>
+              <li>Interne : avec une balise &lt;style&gt; dans le &lt;head&gt;</li>
+              <li>Externe : via un fichier <code>.css</code> lié avec &lt;link&gt;</li>
+            </ul>
+    
+            <h4>Exemple CSS en ligne :</h4>
+            <pre>
+    &lt;p style="color: red;"&gt;Texte en rouge&lt;/p&gt;
+            </pre>
+    
+            <h4>Syntaxe CSS</h4>
+            <p>Un style CSS est composé d’un sélecteur, d’accolades et de propriétés :</p>
+            <pre>
+    p {
+      color: blue;
+      font-size: 16px;
+    }
+            </pre>
+    
+            <h4>Principaux sélecteurs CSS</h4>
+            <ul>
+              <li><code>p</code> : tous les paragraphes</li>
+              <li><code>.ma-classe</code> : tous les éléments ayant cette classe</li>
+              <li><code>#mon-id</code> : l’élément ayant cet ID</li>
+              <li><code>*</code> : tous les éléments</li>
+            </ul>
+    
+            <h4>Exemples de propriétés CSS</h4>
+            <ul>
+              <li><code>color</code> : couleur du texte</li>
+              <li><code>background-color</code> : couleur de fond</li>
+              <li><code>margin</code> : marge extérieure</li>
+              <li><code>padding</code> : marge intérieure</li>
+              <li><code>border</code> : bordure</li>
+              <li><code>text-align</code> : alignement du texte</li>
+            </ul>
+    
+            <h4>Exemple de fichier CSS externe :</h4>
+            <pre>
+    /* style.css */
+    h1 {
+      color: green;
+      text-align: center;
+    }
+            </pre>
+    
+            <h4>Intégration dans le HTML :</h4>
+            <pre>
+    &lt;link rel="stylesheet" href="style.css"&gt;
+            </pre>
+    
+            <h3>3. Bonnes pratiques</h3>
+            <ul>
+              <li>Utiliser des noms de classes clairs</li>
+              <li>Séparer le HTML et le CSS</li>
+              <li>Tester dans plusieurs navigateurs</li>
+              <li>Rendre la page responsive (adaptée aux écrans mobiles)</li>
+            </ul>
+          </div></div>
+        <button class="btn-toggle" onclick="toggleContent('chap5-exo')">Exercices</button>
+        <div id="chap5-exo" class="toggle-content"> <h3>Exercices HTML & CSS</h3>
+
+          <h4>Exercice 1 : Créer une page HTML simple</h4>
+          <p>Objectif : créer une page web contenant un titre principal, un paragraphe, une image et un lien cliquable.</p>
+          <p><strong>Instructions :</strong></p>
+          <ul>
+            <li>Créez une page HTML avec une structure de base.</li>
+            <li>Ajoutez un titre &lt;h1&gt; : "Ma première page"</li>
+            <li>Ajoutez un paragraphe décrivant votre site.</li>
+            <li>Insérez une image avec &lt;img&gt; (vous pouvez utiliser une image en ligne)</li>
+            <li>Ajoutez un lien vers un site de votre choix avec &lt;a&gt;</li>
+          </ul>
+  
+          <h4>Correction :</h4>
+          <pre>
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+    &lt;head&gt;
+      &lt;title&gt;Ma première page&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;h1&gt;Ma première page&lt;/h1&gt;
+      &lt;p&gt;Bienvenue sur mon premier site web. J'apprends HTML et CSS !&lt;/p&gt;
+      &lt;img src="https://via.placeholder.com/150" alt="Image d'exemple"&gt;
+      &lt;a href="https://www.example.com"&gt;Visitez ce site&lt;/a&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;
+          </pre>
+  
+          <h4>Exercice 2 : Appliquer du CSS</h4>
+          <p>Objectif : ajouter du style à la page précédente.</p>
+          <p><strong>Instructions :</strong></p>
+          <ul>
+            <li>Ajoutez une feuille de style interne avec la balise &lt;style&gt;</li>
+            <li>Changez la couleur du titre en bleu</li>
+            <li>Alignez le texte au centre</li>
+            <li>Ajoutez une bordure autour de l'image</li>
+          </ul>
+  
+          <h4>Correction :</h4>
+          <pre>
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+    &lt;head&gt;
+      &lt;title&gt;Ma première page stylée&lt;/title&gt;
+      &lt;style&gt;
+        h1 {
+          color: blue;
+          text-align: center;
+        }
+        p {
+          text-align: center;
+        }
+        img {
+          border: 2px solid black;
+          display: block;
+          margin: auto;
+        }
+      &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;h1&gt;Ma première page&lt;/h1&gt;
+      &lt;p&gt;Bienvenue sur mon premier site web. J'apprends HTML et CSS !&lt;/p&gt;
+      &lt;img src="https://via.placeholder.com/150" alt="Image d'exemple"&gt;
+      &lt;a href="https://www.example.com"&gt;Visitez ce site&lt;/a&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;
+          </pre>
+        </div></div>
+      </div>
+
+      <div class="chapter-block">
+        <h3>Chapitre 6 : réseaux</h3>
+        <button class="btn-toggle" onclick="toggleContent('chap6-cours')">Cours</button>
+        <div id="chap6-cours" class="toggle-content"> <h1>Cours Complet : Réseaux Informatiques</h1>
+        </header>
+        
+        <section>
+            <h2>Qu'est-ce qu'un réseau informatique ?</h2>
+            <p>Un <strong>réseau informatique</strong> est un ensemble d'ordinateurs et de dispositifs interconnectés permettant de partager des ressources et des informations. Les réseaux permettent aux dispositifs de communiquer entre eux grâce à des protocoles et des technologies de transmission de données.</p>
+        </section>
+        
+        <section>
+            <h2>Types de Réseaux</h2>
+            <h3>Réseau Local (LAN)</h3>
+            <p>Un réseau local (LAN - Local Area Network) couvre une petite zone géographique comme une maison, un bureau ou un campus universitaire. Il permet aux dispositifs de partager des fichiers, des imprimantes et d'autres ressources de manière efficace et rapide.</p>
+            
+            <h3>Réseau Étendu (WAN)</h3>
+            <p>Un réseau étendu (WAN - Wide Area Network) relie des réseaux locaux géographiquement dispersés. Un exemple typique de WAN est Internet, qui connecte des millions de dispositifs à travers le monde.</p>
+            
+            <h3>Réseau Métropolitain (MAN)</h3>
+            <p>Un réseau métropolitain (MAN - Metropolitan Area Network) est plus grand qu'un LAN mais plus petit qu'un WAN. Il relie plusieurs LAN dans une même zone urbaine ou une ville. Un exemple pourrait être un réseau qui connecte plusieurs bureaux d'une entreprise dans une ville.</p>
+            
+            <h3>Réseau Personnel (PAN)</h3>
+            <p>Un réseau personnel (PAN - Personal Area Network) est utilisé pour connecter des dispositifs personnels comme un téléphone, un ordinateur portable, une tablette, etc., dans une petite zone comme une maison ou un bureau personnel. La technologie Bluetooth est souvent utilisée pour les PAN.</p>
+        </section>
+        
+        <section>
+            <h2>Composants d'un Réseau</h2>
+            <ul>
+                <li><strong>Ordinateurs et Dispositifs</strong> : Ce sont les dispositifs finaux d'un réseau, comme des ordinateurs, des serveurs, des imprimantes, etc., qui envoient et reçoivent des données.</li>
+                <li><strong>Switchs</strong> : Un switch (commutateur) connecte plusieurs appareils sur un réseau local (LAN). Il permet à ces appareils de communiquer efficacement entre eux.</li>
+                <li><strong>Routeurs</strong> : Un routeur connecte différents réseaux (par exemple, un réseau local à Internet) et détermine le meilleur chemin pour envoyer les données.</li>
+                <li><strong>Modems</strong> : Un modem (modulateur-démodulateur) est utilisé pour connecter un réseau à Internet via une ligne téléphonique ou un câble. Il convertit les signaux numériques en signaux analogiques et vice versa.</li>
+                <li><strong>Serveurs</strong> : Les serveurs fournissent des ressources et des services aux autres dispositifs du réseau, comme des fichiers, des applications ou des pages web.</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Protocoles de Communication</h2>
+            <h3>TCP/IP</h3>
+            <p>Le <strong>TCP/IP</strong> (Transmission Control Protocol / Internet Protocol) est le modèle de communication principal utilisé sur Internet. Il permet la transmission de données en garantissant leur fiabilité et leur ordre. TCP est responsable de la segmentation des données en paquets et de leur réassemblage, tandis qu'IP est responsable de l'adressage et du routage de ces paquets à travers les réseaux.</p>
+            
+            <h3>HTTP/HTTPS</h3>
+            <p>Le <strong>HTTP</strong> (Hypertext Transfer Protocol) est un protocole utilisé pour la transmission de pages web. HTTPS est une version sécurisée de HTTP, utilisant un chiffrement SSL/TLS pour protéger la confidentialité des données échangées entre le client (navigateur) et le serveur.</p>
+            
+            <h3>FTP</h3>
+            <p>Le <strong>FTP</strong> (File Transfer Protocol) est utilisé pour transférer des fichiers entre des ordinateurs via un réseau. Il permet de télécharger ou de téléverser des fichiers depuis et vers des serveurs.</p>
+            
+            <h3>DNS</h3>
+            <p>Le <strong>DNS</strong> (Domain Name System) est un système qui traduit les noms de domaine (comme www.example.com) en adresses IP que les ordinateurs peuvent comprendre. Cela permet de naviguer sur Internet en utilisant des noms conviviaux au lieu d'adresses numériques complexes.</p>
+            
+            <h3>DHCP</h3>
+            <p>Le <strong>DHCP</strong> (Dynamic Host Configuration Protocol) est un protocole qui attribue automatiquement des adresses IP aux dispositifs sur un réseau. Cela simplifie la gestion des adresses IP sur un réseau local.</p>
+        </section>
+        
+        <section>
+            <h2>Modèle OSI (Open Systems Interconnection)</h2>
+            <p>Le modèle OSI est un modèle de communication en sept couches qui standardise les fonctions de communication d'un réseau. Chaque couche a un rôle spécifique et communique avec les couches adjacentes pour assurer la transmission des données.</p>
+            
+            <ul>
+                <li><strong>Couche 1 : Physique</strong> - Gestion des supports physiques pour la transmission de données (câbles, fibre optique, ondes radio, etc.).</li>
+                <li><strong>Couche 2 : Liaison de données</strong> - Assure la transmission fiable des données entre deux dispositifs directement connectés.</li>
+                <li><strong>Couche 3 : Réseau</strong> - Assure le routage des paquets de données à travers le réseau, en choisissant le meilleur chemin.</li>
+                <li><strong>Couche 4 : Transport</strong> - Garantit la livraison correcte et dans l'ordre des paquets de données entre l'émetteur et le récepteur.</li>
+                <li><strong>Couche 5 : Session</strong> - Gère l'établissement, la gestion et la terminaison des sessions de communication entre deux dispositifs.</li>
+                <li><strong>Couche 6 : Présentation</strong> - S'occupe de la présentation des données (format, compression, chiffrement). Elle veille à ce que les données soient compréhensibles par l'application réceptrice.</li>
+                <li><strong>Couche 7 : Application</strong> - Cette couche permet à l'utilisateur d'interagir avec les applications réseau, comme les navigateurs web ou les clients de messagerie.</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Sécurité des Réseaux</h2>
+            <h3>Pare-feu (Firewall)</h3>
+            <p>Un <strong>pare-feu</strong> est un dispositif de sécurité qui contrôle le trafic entrant et sortant d'un réseau. Il peut être matériel ou logiciel et permet de bloquer les connexions non autorisées tout en permettant les communications légitimes.</p>
+            
+            <h3>Chiffrement</h3>
+            <p>Le <strong>chiffrement</strong> est un processus qui rend les données illisibles sans une clé de déchiffrement. Il est utilisé pour protéger la confidentialité des données échangées sur des réseaux non sécurisés, comme Internet.</p>
+            
+            <h3>VPN (Virtual Private Network)</h3>
+            <p>Un <strong>VPN</strong> permet de créer une connexion sécurisée entre un utilisateur et un réseau, souvent utilisé pour accéder à des ressources internes d'une entreprise ou pour naviguer anonymement sur Internet.</p>
+            
+            <h3>Contrôle d'accès</h3>
+            <p>Le <strong>contrôle d'accès</strong> définit qui peut accéder à quelles ressources sur un réseau. Cela inclut des mécanismes comme les mots de passe, les cartes d'accès, ou l'authentification multi-facteurs (MFA).</p>
+        </section></div>
+        <button class="btn-toggle" onclick="toggleContent('chap6-exo')">Exercices</button>
+        <div id="chap6-exo" class="toggle-content"> <h1>Exercices : Réseaux Informatiques</h1>
+        </header>
+        
+        <section>
+            <h2>Exercice 1 : Types de Réseaux</h2>
+            <p>Associe chaque type de réseau à sa description correspondante.</p>
+            <ul>
+                <li>A. LAN</li>
+                <li>B. WAN</li>
+                <li>C. MAN</li>
+                <li>D. PAN</li>
+            </ul>
+            <p>Descriptions :</p>
+            <ul>
+                <li>1. Réseau qui relie des dispositifs sur une petite zone géographique, comme une maison ou un bureau.</li>
+                <li>2. Réseau qui relie des dispositifs à travers une large zone géographique, comme des villes ou des pays.</li>
+                <li>3. Réseau qui relie plusieurs réseaux locaux dans une même zone urbaine, comme une ville.</li>
+                <li>4. Réseau qui connecte des dispositifs personnels comme un smartphone ou un ordinateur portable.</li>
+            </ul>
+        
+            <h3>Correction</h3>
+            <ul>
+                <li>A-1 : LAN (Local Area Network)</li>
+                <li>B-2 : WAN (Wide Area Network)</li>
+                <li>C-3 : MAN (Metropolitan Area Network)</li>
+                <li>D-4 : PAN (Personal Area Network)</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Exercice 2 : Composants d'un Réseau</h2>
+            <p>Indique la fonction de chaque composant du réseau.</p>
+            <ul>
+                <li>A. Switch</li>
+                <li>B. Routeur</li>
+                <li>C. Modem</li>
+                <li>D. Serveur</li>
+            </ul>
+            <p>Fonctions :</p>
+            <ul>
+                <li>1. Dispositif qui attribue une adresse IP à chaque appareil sur le réseau.</li>
+                <li>2. Appareil qui connecte un réseau local à Internet.</li>
+                <li>3. Dispositif qui permet de partager des ressources, comme des fichiers ou des imprimantes, entre plusieurs dispositifs.</li>
+                <li>4. Machine qui fournit des services ou des ressources sur le réseau, comme un serveur web.</li>
+            </ul>
+        
+            <h3>Correction</h3>
+            <ul>
+                <li>A-3 : Switch</li>
+                <li>B-1 : Routeur</li>
+                <li>C-2 : Modem</li>
+                <li>D-4 : Serveur</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Exercice 3 : Protocoles de Réseau</h2>
+            <p>Complète les phrases avec le nom du protocole approprié (TCP/IP, HTTP, FTP, DNS, DHCP).</p>
+            <ul>
+                <li>1. Le protocole <strong>______</strong> est utilisé pour transférer des fichiers entre un client et un serveur sur Internet.</li>
+                <li>2. Le protocole <strong>______</strong> permet d'attribuer dynamiquement des adresses IP aux appareils sur un réseau.</li>
+                <li>3. Le protocole <strong>______</strong> est responsable de la transmission fiable des données à travers le réseau.</li>
+                <li>4. Le protocole <strong>______</strong> permet de résoudre des noms de domaine en adresses IP.</li>
+                <li>5. Le protocole <strong>______</strong> est utilisé pour afficher des pages web sur les navigateurs.</li>
+            </ul>
+        
+            <h3>Correction</h3>
+            <ul>
+                <li>1. FTP (File Transfer Protocol)</li>
+                <li>2. DHCP (Dynamic Host Configuration Protocol)</li>
+                <li>3. TCP/IP (Transmission Control Protocol / Internet Protocol)</li>
+                <li>4. DNS (Domain Name System)</li>
+                <li>5. HTTP (HyperText Transfer Protocol)</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Exercice 4 : Modèle OSI</h2>
+            <p>Indique à quelle couche du modèle OSI appartient chaque fonction.</p>
+            <ul>
+                <li>A. Transfert des données entre les applications</li>
+                <li>B. Gestion du routage des paquets entre différents réseaux</li>
+                <li>C. Conversion des données sous un format compréhensible pour le destinataire</li>
+                <li>D. Transmission des signaux via des supports physiques</li>
+                <li>E. Gestion des connexions entre deux dispositifs</li>
+            </ul>
+            <p>Choisis parmi les couches :</p>
+            <ul>
+                <li>1. Couche 1 : Physique</li>
+                <li>2. Couche 2 : Liaison de données</li>
+                <li>3. Couche 3 : Réseau</li>
+                <li>4. Couche 4 : Transport</li>
+                <li>5. Couche 5 : Session</li>
+                <li>6. Couche 6 : Présentation</li>
+                <li>7. Couche 7 : Application</li>
+            </ul>
+        
+            <h3>Correction</h3>
+            <ul>
+                <li>A-7 : Couche 7 (Application)</li>
+                <li>B-3 : Couche 3 (Réseau)</li>
+                <li>C-6 : Couche 6 (Présentation)</li>
+                <li>D-1 : Couche 1 (Physique)</li>
+                <li>E-5 : Couche 5 (Session)</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Exercice 5 : Sécurité des Réseaux</h2>
+            <p>Associe chaque mesure de sécurité à sa description.</p>
+            <ul>
+                <li>A. Pare-feu</li>
+                <li>B. Chiffrement</li>
+                <li>C. VPN</li>
+                <li>D. Contrôle d'accès</li>
+            </ul>
+            <p>Descriptions :</p>
+            <ul>
+                <li>1. Technique qui protège les données échangées en les rendant illisibles sans une clé.</li>
+                <li>2. Dispositif qui bloque ou autorise les connexions réseau selon des règles définies.</li>
+                <li>3. Système qui permet de vérifier qui peut accéder à quelles ressources sur le réseau.</li>
+                <li>4. Technologie qui crée une connexion sécurisée et privée entre un utilisateur et un réseau.</li>
+            </ul>
+        
+            <h3>Correction</h3>
+            <ul>
+                <li>A-2 : Pare-feu</li>
+                <li>B-1 : Chiffrement</li>
+                <li>C-4 : VPN</li>
+                <li>D-3 : Contrôle d'accès</li>
+            </ul></div>
+      </div>
+      <div id="chap0-cours" class="toggle-content">ICI</div>
+
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Coder Facile. Tous droits réservés.
+  </footer>
+</body>
+</html>

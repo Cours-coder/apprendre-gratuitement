@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cours Cybersécurité - Coder Facile</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --secondary-color: #f8fafc;
+      --accent-color: #2213f3;
+      --accent-dark: #096961;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      padding: 60px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .chapter-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+
+    .chapter-block h3 {
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      color: var(--accent-dark);
+      text-align: center;
+    }
+
+    .btn-toggle {
+      background: linear-gradient(to right, #b35cce, #303d8a);
+      color: white;
+      border: none;
+      padding: 16px 50px;
+      font-size: 1.1em;
+      border-radius: 40px;
+      cursor: pointer;
+      margin: 10px;
+      transition: transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      width: 70%;
+      text-align: center;
+    }
+
+    .btn-toggle:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+    }
+
+    .toggle-content {
+      display: none;
+      margin-top: 20px;
+      background-color: #f1f5f9;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+      width: 90%;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: var(--primary-color);
+      color: white;
+      font-size: 0.9em;
+    }
+  </style>
+  <script>
+    function toggleContent(id) {
+      const content = document.getElementById(id);
+      const allContents = document.querySelectorAll('.toggle-content');
+      allContents.forEach(el => {
+        if (el.id !== id) el.style.display = 'none';
+      });
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Cours Cybersécurité</h1>
+    <p>Apprends à protéger tes données et systèmes</p>
+  </header>
+  <main>
+    <section class="section">
+      <h2>Choisis un Chapitre</h2>
+
+      <div class="chapter-block">
+        <h3>Chapitre 1 : Introduction à la cybersécurité</h3>
+        <button class="btn-toggle" onclick="toggleContent('chap1-cours')">Cours</button>
+        <div id="chap1-cours" class="toggle-content"> 
+              <h2>1. Qu'est-ce que la Cybersécurité ?</h2>
+              <p>La cybersécurité est l'ensemble des pratiques, des outils et des processus utilisés pour protéger les systèmes informatiques, les réseaux, les données et les dispositifs contre les attaques, les dommages ou les accès non autorisés. Avec la montée de l'usage d'Internet et des technologies de l'information, la cybersécurité est devenue un domaine essentiel pour protéger la confidentialité, l'intégrité et la disponibilité des informations.</p>
+        
+              <h2>2. Objectifs de la Cybersécurité</h2>
+              <p>Les principaux objectifs de la cybersécurité peuvent être résumés par le modèle <strong>CIA</strong> :</p>
+              <ul>
+                <li><strong>Confidentialité :</strong> Assurer que seules les personnes autorisées aient accès aux informations sensibles.</li>
+                <li><strong>Intégrité :</strong> Garantir que les données ne soient ni modifiées, altérées ou supprimées de manière non autorisée.</li>
+                <li><strong>Disponibilité :</strong> Assurer que les informations et les systèmes soient accessibles aux utilisateurs autorisés lorsque nécessaire.</li>
+              </ul>
+        
+              <h2>3. Types de Menaces en Cybersécurité</h2>
+              <p>Les menaces en cybersécurité sont multiples et peuvent avoir un impact grave sur la sécurité d'un système. Voici les types de menaces les plus courants :</p>
+              <ul>
+                <li><strong>Malware (logiciel malveillant) :</strong> Ce sont des programmes conçus pour infecter un système, souvent pour voler des données ou endommager des fichiers. Les virus, vers et chevaux de Troie en sont des exemples.</li>
+                <li><strong>Phishing :</strong> Une méthode d'attaque qui consiste à duper les utilisateurs pour qu'ils révèlent des informations sensibles, comme des mots de passe ou des informations bancaires.</li>
+                <li><strong>Ransomware (rançongiciel) :</strong> Un type de malware qui chiffre les données d'un utilisateur et exige une rançon pour les débloquer.</li>
+                <li><strong>Attaques par déni de service (DDoS) :</strong> Ces attaques visent à rendre un service ou un site web indisponible en l'inondant de requêtes.</li>
+              </ul>
+        
+              <h2>4. Principales Techniques de Cybersécurité</h2>
+              <p>Il existe différentes techniques et stratégies de cybersécurité utilisées pour protéger les systèmes informatiques contre les menaces. Les plus courantes sont :</p>
+              <ul>
+                <li><strong>Pare-feu (Firewall) :</strong> Un dispositif qui surveille et contrôle les connexions réseau, autorisant ou bloquant le trafic en fonction de règles de sécurité.</li>
+                <li><strong>Cryptographie :</strong> L'utilisation de codes pour protéger les données sensibles. La cryptographie permet de chiffrer les informations pour les rendre inaccessibles sans une clé appropriée.</li>
+                <li><strong>Contrôles d'accès :</strong> Les mécanismes permettant de restreindre l'accès aux informations et aux systèmes. Cela inclut des mots de passe, des authentifications à deux facteurs (2FA), et des dispositifs de gestion des identités.</li>
+                <li><strong>Surveillance et détection des intrusions :</strong> Des outils et systèmes permettant de surveiller en temps réel les activités réseau et de détecter toute activité suspecte ou non autorisée.</li>
+              </ul>
+        
+              <h2>5. Bonnes Pratiques en Cybersécurité</h2>
+              <p>Voici quelques bonnes pratiques à adopter pour améliorer la cybersécurité :</p>
+              <ul>
+                <li><strong>Utiliser des mots de passe forts :</strong> Utilisez des mots de passe complexes et changez-les régulièrement.</li>
+                <li><strong>Mettre à jour régulièrement les logiciels :</strong> Installez les mises à jour de sécurité dès qu'elles sont disponibles pour vous protéger contre les vulnérabilités connues.</li>
+                <li><strong>Utiliser un antivirus :</strong> Installez et mettez à jour régulièrement un logiciel antivirus pour détecter et éliminer les menaces.</li>
+                <li><strong>Former les utilisateurs :</strong> Éduquez les utilisateurs à reconnaître les attaques de phishing et autres menaces courantes.</li>
+                <li><strong>Utiliser des sauvegardes régulières :</strong> Sauvegardez régulièrement les données importantes afin de pouvoir les récupérer en cas d'attaque par ransomware ou autre incident.</li>
+              </ul>
+        
+              <h2>6. Conclusion</h2>
+              <p>La cybersécurité est un domaine crucial qui touche tous les secteurs. En appliquant les bonnes pratiques et en mettant en œuvre des technologies de sécurité appropriées, on peut réduire considérablement les risques d'attaques et de pertes de données. La cybersécurité doit être une priorité pour chaque utilisateur, entreprise et organisation dans le monde numérique d'aujourd'hui.</p></div>
+        <button class="btn-toggle" onclick="toggleContent('chap1-exo')">Exercices</button>
+        <div id="chap1-exo" class="toggle-content"><h1>Exercices de Cybersécurité</h1>
+        </header>
+      
+        <main>
+          <section>
+            <h2>Exercice 1 : Identifier les types de menaces</h2>
+            <p>Dans cet exercice, tu devras associer chaque menace à sa description correspondante.</p>
+            <ul>
+              <li><strong>Malware :</strong> _________</li>
+              <li><strong>Phishing :</strong> _________</li>
+              <li><strong>Ransomware :</strong> _________</li>
+              <li><strong>DDoS :</strong> _________</li>
+            </ul>
+            <h3>Réponses :</h3>
+            <ul>
+              <li>Malware : Programme malveillant conçu pour infecter un système (virus, vers, cheval de Troie).</li>
+              <li>Phishing : Tentatives d'escroquerie visant à voler des informations personnelles en se faisant passer pour une entité de confiance.</li>
+              <li>Ransomware : Malware qui chiffre les fichiers d’un utilisateur et demande une rançon pour les déchiffrer.</li>
+              <li>DDoS : Attaque par déni de service qui surcharge un système pour le rendre indisponible.</li>
+            </ul>
+          </section>
+      
+          <section>
+            <h2>Exercice 2 : Analyse des bonnes pratiques</h2>
+            <p>Relie chaque bonne pratique de cybersécurité à son objectif.</p>
+            <ul>
+              <li><strong>Utilisation de mots de passe forts :</strong> _________</li>
+              <li><strong>Mettre à jour les logiciels :</strong> _________</li>
+              <li><strong>Former les utilisateurs :</strong> _________</li>
+              <li><strong>Sauvegarder régulièrement les données :</strong> _________</li>
+            </ul>
+      
+            <h3>Réponses :</h3>
+            <ul>
+              <li>Utilisation de mots de passe forts : <em>Réduit le risque de piratage d'un compte en rendant l'accès difficile.</em></li>
+              <li>Mettre à jour les logiciels : <em>Corrige les vulnérabilités connues et protège contre les menaces récentes.</em></li>
+              <li>Former les utilisateurs : <em>Permet de prévenir les erreurs humaines telles que la fraude par phishing.</em></li>
+              <li>Sauvegarder régulièrement les données : <em>Permet de récupérer des informations en cas de ransomware ou de défaillance système.</em></li>
+            </ul>
+          </section>
+      
+          <section>
+            <h2>Exercice 3 : Concepts de base</h2>
+            <p>Réponds aux questions suivantes :</p>
+            <ol>
+              <li>Qu’est-ce que la confidentialité en cybersécurité ?</li>
+              <li>Pourquoi est-il important d'assurer l'intégrité des données ?</li>
+              <li>Qu’est-ce que le modèle CIA en cybersécurité ?</li>
+            </ol>
+      
+            <h3>Réponses :</h3>
+            <ol>
+              <li>La confidentialité en cybersécurité signifie que seules les personnes autorisées peuvent accéder à certaines informations sensibles.</li>
+              <li>L’intégrité des données est importante pour garantir qu’aucune information n’a été modifiée ou corrompue sans autorisation.</li>
+              <li>Le modèle CIA représente trois principes fondamentaux : Confidentialité, Intégrité et Disponibilité. Ces principes assurent une protection complète des systèmes d’information.</li>
+            </ol>
+          </section>
+      
+          <section>
+            <h2>Exercice 4 : Types d'attaques et leurs solutions</h2>
+            <p>Associe chaque type d'attaque à sa solution de défense :</p>
+            <ul>
+              <li><strong>Malware :</strong> _________</li>
+              <li><strong>Phishing :</strong> _________</li>
+              <li><strong>Ransomware :</strong> _________</li>
+              <li><strong>Attaques DDoS :</strong> _________</li>
+            </ul>
+      
+            <h3>Réponses :</h3>
+            <ul>
+              <li>Malware : <em>Utilisation d'un antivirus et mise à jour régulière des systèmes pour détecter et prévenir l’infection.</em></li>
+              <li>Phishing : <em>Éducation des utilisateurs pour identifier les emails frauduleux et l'usage de filtres antiphishing.</em></li>
+              <li>Ransomware : <em>Sauvegarde régulière des données et utilisation de logiciels anti-ransomware.</em></li>
+              <li>Attaques DDoS : <em>Utilisation de pare-feu et services spécialisés dans la mitigation des attaques DDoS.</em></li>
+            </ul></div>
+      </div>
+
+      <div class="chapter-block">
+        <h3>Chapitre 2 : Principes de base de la sécurité informatique</h3>
+        <button class="btn-toggle" onclick="toggleContent('chap2-cours')">Cours</button>
+        <div id="chap2-cours" class="toggle-content"><p><strong>Introduction à la sécurité informatique</strong></p>
+            <p>La sécurité informatique est un domaine crucial qui vise à protéger les systèmes informatiques, les réseaux, les logiciels et les données contre toute forme de menace, de malveillance ou de dommage. L'objectif est de garantir la confidentialité, l'intégrité et la disponibilité des informations et des ressources.</p>
+            
+            <p><strong>Les principes de base de la sécurité informatique</strong></p>
+            
+            <h4>1. La confidentialité</h4>
+            <p>La confidentialité désigne le fait de restreindre l'accès aux informations sensibles uniquement aux personnes ou entités autorisées. Cela permet de protéger les données contre l'accès non autorisé, qu'il s'agisse de vol, de fuites ou de divulgations accidentelles.</p>
+            <p><strong>Exemples de pratiques de confidentialité :</strong></p>
+            <ul>
+              <li>Utilisation de mots de passe forts et uniques.</li>
+              <li>Chiffrement des données sensibles.</li>
+              <li>Contrôles d'accès pour les utilisateurs et les systèmes.</li>
+            </ul>
+            
+            <h4>2. L'intégrité</h4>
+            <p>L'intégrité garantit que les données sont exactes, cohérentes et n'ont pas été modifiées de manière non autorisée. Cela inclut la protection contre la corruption des données, qu'elle soit accidentelle ou malveillante.</p>
+            <p><strong>Exemples d'intégrité des données :</strong></p>
+            <ul>
+              <li>Utilisation de sommes de contrôle et de signatures numériques pour vérifier les données.</li>
+              <li>Protection contre les attaques par injection de données (SQL injection, etc.).</li>
+              <li>Mise en place de mécanismes de sauvegarde réguliers.</li>
+            </ul>
+            
+            <h4>3. La disponibilité</h4>
+            <p>La disponibilité désigne le fait que les systèmes, services et informations sont accessibles et fonctionnels lorsqu'ils sont nécessaires. Cela inclut la mise en place de stratégies pour éviter les interruptions de service.</p>
+            <p><strong>Exemples pour assurer la disponibilité :</strong></p>
+            <ul>
+              <li>Utilisation de serveurs redondants et de mécanismes de sauvegarde.</li>
+              <li>Protection contre les attaques par déni de service (DDoS).</li>
+              <li>Gestion proactive des pannes matérielles et logicielles.</li>
+            </ul>
+            
+            <h4>4. L'authentification</h4>
+            <p>L'authentification est le processus permettant de vérifier l'identité d'un utilisateur, d'un système ou d'une application avant d'accorder l'accès à des ressources protégées.</p>
+            <p><strong>Exemples de méthodes d'authentification :</strong></p>
+            <ul>
+              <li>Mots de passe et identifiants (parfois associés à des mécanismes multi-facteurs).</li>
+              <li>Authentification biométrique (empreintes digitales, reconnaissance faciale, etc.).</li>
+              <li>Certificats numériques et clés publiques/privées.</li>
+            </ul>
+            
+            <h4>5. Le contrôle d'accès</h4>
+            <p>Le contrôle d'accès consiste à déterminer quelles ressources peuvent être accessibles par quel utilisateur, à quel moment et dans quel contexte. Cela permet de s'assurer que seules les personnes autorisées peuvent accéder à des informations sensibles.</p>
+            <p><strong>Exemples de contrôle d'accès :</strong></p>
+            <ul>
+              <li>Contrôle d'accès basé sur les rôles (RBAC).</li>
+              <li>Contrôle d'accès basé sur l'heure ou la localisation.</li>
+              <li>Utilisation de politiques d'accès à faible privilège (le principe du moindre privilège).</li>
+            </ul>
+            
+            <h4>6. La gestion des risques</h4>
+            <p>La gestion des risques est une approche systématique qui permet d'identifier, d'évaluer et de traiter les risques qui pourraient affecter la sécurité des systèmes informatiques. Cela inclut la mise en œuvre de mesures préventives et réactives pour limiter les impacts des risques sur les données et les ressources.</p>
+            <p><strong>Exemples de gestion des risques :</strong></p>
+            <ul>
+              <li>Évaluation continue des vulnérabilités des systèmes et des logiciels.</li>
+              <li>Test d'intrusion pour évaluer la résistance des systèmes aux attaques.</li>
+              <li>Plan de continuité des activités et plan de reprise après sinistre (DRP).</li>
+            </ul>
+            
+            <h4>7. La protection contre les malwares</h4>
+            <p>Les malwares (programmes malveillants) sont des logiciels conçus pour causer des dommages à un système ou voler des informations. Cela inclut les virus, les vers, les chevaux de Troie, les ransomwares, etc.</p>
+            <p><strong>Exemples de protection contre les malwares :</strong></p>
+            <ul>
+              <li>Installation de logiciels antivirus et anti-malware.</li>
+              <li>Utilisation de filtres et pare-feu pour empêcher les logiciels malveillants d'entrer dans les systèmes.</li>
+              <li>Éducation des utilisateurs pour éviter les comportements à risque (ne pas cliquer sur des liens suspects, ne pas télécharger de fichiers inconnus).</li>
+            </ul>
+          </div>
+        <button class="btn-toggle" onclick="toggleContent('chap2-exo')">Exercices</button>
+        <div id="chap2-exo" class="toggle-content"> <h4>Exercice 1 : Confidentialité et accès aux données</h4>
+            <p><strong>Question :</strong> Quelles sont les principales méthodes pour assurer la confidentialité des données dans un système informatique ?</p>
+            <p><strong>Réponse :</strong> Les principales méthodes pour assurer la confidentialité des données comprennent :</p>
+            <ul>
+              <li>Le chiffrement des données (cryptage).</li>
+              <li>L'authentification des utilisateurs (utilisation de mots de passe, biométrie, etc.).</li>
+              <li>La gestion des accès (gestion des rôles et des permissions).</li>
+            </ul>
+          
+            <h4>Exercice 2 : Intégrité des données</h4>
+            <p><strong>Question :</strong> Quelle est l'importance de l'intégrité des données et comment la maintenir dans un système ?</p>
+            <p><strong>Réponse :</strong> L'intégrité des données assure que celles-ci sont exactes, cohérentes et non altérées. Pour maintenir l'intégrité des données, il est important d'utiliser :</p>
+            <ul>
+              <li>Des mécanismes de contrôle d'intégrité comme les sommes de contrôle ou les signatures numériques.</li>
+              <li>Des systèmes de détection des intrusions pour prévenir les altérations non autorisées.</li>
+              <li>Des copies de sauvegarde régulières pour éviter la perte de données en cas de corruption.</li>
+            </ul>
+          
+            <h4>Exercice 3 : Sécurisation des accès</h4>
+            <p><strong>Question :</strong> Quelles sont les bonnes pratiques pour sécuriser l'accès aux ressources d'un système informatique ?</p>
+            <p><strong>Réponse :</strong> Les bonnes pratiques pour sécuriser l'accès aux ressources incluent :</p>
+            <ul>
+              <li>L'application du principe du moindre privilège : ne donner que les accès nécessaires.</li>
+              <li>La mise en place de contrôles d'accès basés sur des rôles (RBAC).</li>
+              <li>La mise en place de systèmes d'authentification forte (authentification multi-facteurs).</li>
+              <li>L'audit régulier des accès et des activités des utilisateurs.</li>
+            </ul>
+          
+            <h4>Exercice 4 : Malwares et protection</h4>
+            <p><strong>Question :</strong> Citez quelques types de malwares et expliquez comment les prévenir.</p>
+            <p><strong>Réponse :</strong> Les principaux types de malwares incluent :</p>
+            <ul>
+              <li>Les virus : des programmes qui se propagent et endommagent les fichiers du système.</li>
+              <li>Les chevaux de Troie : des programmes déguisés en logiciels légitimes mais qui contiennent des éléments malveillants.</li>
+              <li>Les ransomwares : des malwares qui chiffrent les données de l'utilisateur et exigent une rançon pour les déchiffrer.</li>
+            </ul>
+            <p>Pour prévenir les malwares, il est essentiel de :</p>
+            <ul>
+              <li>Installer un logiciel antivirus et le maintenir à jour.</li>
+              <li>Éviter de télécharger des fichiers ou de cliquer sur des liens suspects.</li>
+              <li>Mettre en place des pare-feu pour filtrer le trafic réseau.</li>
+            </ul></div>
+      </div>
+
+      <div class="chapter-block">
+        <h3>Chapitre 3 : Systèmes d’exploitation & réseaux</h3>
+        <button class="btn-toggle" onclick="toggleContent('chap3-cours')">Cours</button>
+        <div id="chap3-cours" class="toggle-content"><p><strong>Introduction aux systèmes d'exploitation et aux réseaux</strong></p>
+            <p>Un système d’exploitation (SE) est un ensemble de programmes qui gère le matériel informatique et les logiciels d'une machine. Il permet de contrôler les ressources du système (processeur, mémoire, périphériques) et d'offrir des services aux programmes. Les réseaux, quant à eux, permettent la communication entre plusieurs systèmes informatiques à travers différents types de supports (câbles, ondes radio, etc.).</p>
+          
+            <h4>1. Systèmes d'exploitation</h4>
+            <p>Les systèmes d’exploitation sont essentiels pour faire fonctionner un ordinateur ou tout autre appareil informatique. Ils permettent aux utilisateurs d'interagir avec le matériel informatique et de gérer des applications logicielles. Les principaux systèmes d’exploitation incluent :</p>
+            <ul>
+              <li><strong>Windows</strong> : Très populaire dans le monde professionnel et pour les utilisateurs domestiques.</li>
+              <li><strong>Linux</strong> : Un système d'exploitation open-source largement utilisé par les développeurs et les serveurs.</li>
+              <li><strong>macOS</strong> : Le système d'exploitation d'Apple, connu pour sa stabilité et sa sécurité.</li>
+              <li><strong>Android et iOS</strong> : Des systèmes d’exploitation mobiles utilisés sur les smartphones et tablettes.</li>
+            </ul>
+          
+            <h4>2. Fonctionnement d'un système d'exploitation</h4>
+            <p>Un SE remplit plusieurs fonctions fondamentales :</p>
+            <ul>
+              <li><strong>Gestion du processeur (CPU)</strong> : Alloue les ressources du processeur aux programmes en cours d’exécution.</li>
+              <li><strong>Gestion de la mémoire</strong> : Assure la gestion de la mémoire vive (RAM) et du stockage.</li>
+              <li><strong>Gestion des fichiers</strong> : Organise, stocke et donne accès aux fichiers et aux répertoires sur le disque dur.</li>
+              <li><strong>Gestion des périphériques</strong> : Permet aux programmes d’interagir avec des périphériques externes tels que l’imprimante, le clavier, la souris, etc.</li>
+              <li><strong>Interface utilisateur</strong> : Fournit une interface graphique ou en ligne de commande pour permettre aux utilisateurs de communiquer avec la machine.</li>
+            </ul>
+          
+            <h4>3. Les processus et la gestion des tâches</h4>
+            <p>Les processus sont des programmes qui s'exécutent dans un système d'exploitation. Un SE est responsable de la gestion des processus en cours d'exécution, de leur allocation aux ressources disponibles et de leur planification. La gestion des tâches inclut :</p>
+            <ul>
+              <li><strong>Planification des processus</strong> : Décider quel processus sera exécuté à quel moment.</li>
+              <li><strong>Synchronisation</strong> : S'assurer que plusieurs processus n'entrent pas en conflit lorsqu'ils accèdent aux ressources partagées.</li>
+              <li><strong>Gestion de la mémoire</strong> : Attribuer de la mémoire aux processus et les libérer une fois terminés.</li>
+            </ul>
+          
+            <h4>4. Introduction aux réseaux</h4>
+            <p>Les réseaux informatiques permettent la communication entre plusieurs ordinateurs et autres dispositifs à l’aide de supports physiques (câbles) ou sans fil (ondes radio). Les réseaux peuvent être classés en fonction de leur taille :</p>
+            <ul>
+              <li><strong>Réseaux locaux (LAN)</strong> : Utilisés pour connecter plusieurs dispositifs au sein d'une même zone géographique (ex. : un bureau ou une maison).</li>
+              <li><strong>Réseaux étendus (WAN)</strong> : S'étendent sur de grandes distances et connectent des réseaux locaux entre eux (ex. : Internet).</li>
+              <li><strong>Réseaux personnels (PAN)</strong> : Connexions sans fil entre des dispositifs proches (ex. : Bluetooth).</li>
+            </ul>
+          
+            <h4>5. Les composants d'un réseau</h4>
+            <p>Les réseaux informatiques sont constitués de divers composants :</p>
+            <ul>
+              <li><strong>Serveurs</strong> : Machines dédiées à fournir des services (fichiers, applications, etc.) à d'autres ordinateurs (clients).</li>
+              <li><strong>Clients</strong> : Ordinateurs ou dispositifs qui se connectent au serveur pour utiliser ses services.</li>
+              <li><strong>Routeurs</strong> : Dispositifs qui transmettent les données entre différents réseaux.</li>
+              <li><strong>Switches</strong> : Appareils qui connectent plusieurs dispositifs au sein d'un réseau local.</li>
+              <li><strong>Câblage et ondes radio</strong> : Les supports physiques utilisés pour transmettre les données (câbles Ethernet, fibre optique, etc., ou ondes radio pour le Wi-Fi).</li>
+            </ul>
+          
+            <h4>6. Protocoles de communication</h4>
+            <p>Les réseaux utilisent des protocoles de communication pour assurer la transmission des données. Parmi les principaux protocoles, on retrouve :</p>
+            <ul>
+              <li><strong>TCP/IP (Transmission Control Protocol / Internet Protocol)</strong> : Le principal ensemble de protocoles utilisés sur Internet.</li>
+              <li><strong>HTTP/HTTPS</strong> : Protocole pour la navigation web (Hypertext Transfer Protocol / Secure).</li>
+              <li><strong>FTP</strong> : Protocole pour le transfert de fichiers (File Transfer Protocol).</li>
+              <li><strong>DNS</strong> : Système de noms de domaine qui permet de traduire les noms de domaine (comme www.example.com) en adresses IP.</li>
+            </ul></div>
+        <button class="btn-toggle" onclick="toggleContent('chap3-exo')">Exercices</button>
+        <div id="chap3-exo" class="toggle-content"><h4>Exercice 1 : Identification des systèmes d’exploitation</h4>
+            <p><strong>Question :</strong> Listez les systèmes d’exploitation les plus utilisés dans les environnements personnels et professionnels. Expliquez brièvement pourquoi chaque système est adapté à son domaine.</p>
+            <h4>Exercice 2 : Fonctionnement d'un processus</h4>
+            <p><strong>Question :</strong> Expliquez les étapes qu'un système d’exploitation suit pour gérer l'exécution d'un programme (processus). Quelles sont les ressources allouées à ce processus ?</p>
+            <h4>Exercice 3 : Classification des réseaux</h4>
+            <p><strong>Question :</strong> Décrivez les trois principaux types de réseaux (LAN, WAN, PAN). Donnez des exemples concrets d'utilisation pour chacun.</p>
+            <h4>Exercice 4 : Analyse d’un protocole de communication</h4>
+            <p><strong>Question :</strong> Expliquez le rôle du protocole TCP/IP dans la communication sur Internet. Quelles sont les principales étapes impliquées dans une communication TCP/IP ?</p>
+            <h4>Exercice 5 : Composants d'un réseau</h4>
+            <p><strong>Question :</strong> Identifiez les composants essentiels d’un réseau informatique. Expliquez brièvement la fonction de chaque composant (serveur, client, routeur, switch, etc.).</p>
+          
+            <h4>Correction des exercices :</h4>
+            <p><strong>Correction Exercice 1 :</strong></p>
+            <p>Les systèmes d’exploitation les plus utilisés sont :</p>
+            <ul>
+              <li><strong>Windows</strong> : Utilisé dans la plupart des environnements professionnels et domestiques grâce à son interface conviviale et sa compatibilité avec une grande variété de logiciels.</li>
+              <li><strong>Linux</strong> : Préféré dans les environnements serveur et par les développeurs en raison de sa stabilité, de sa sécurité et de son caractère open-source.</li>
+              <li><strong>macOS</strong> : Principalement utilisé dans les environnements créatifs et pour les professionnels qui privilégient une interface fluide et une sécurité renforcée.</li>
+              <li><strong>Android et iOS</strong> : Utilisés sur les appareils mobiles, Android est plus répandu dans le monde entier, tandis qu’iOS est l'OS exclusif des appareils Apple (iPhone, iPad).</li>
+            </ul>
+          
+            <p><strong>Correction Exercice 2 :</strong></p>
+            <p>Les étapes pour gérer l'exécution d'un programme sont :</p>
+            <ol>
+              <li><strong>Chargement du processus :</strong> Le programme est chargé en mémoire (RAM) par le gestionnaire de mémoire.</li>
+              <li><strong>Attribution des ressources :</strong> Le SE attribue des ressources telles que la CPU et la mémoire au processus.</li>
+              <li><strong>Exécution :</strong> Le processus est exécuté par le processeur selon les instructions du programme.</li>
+              <li><strong>Gestion des tâches :</strong> Le SE gère l'exécution concurrente de plusieurs processus, en prévenant les conflits d'accès aux ressources.</li>
+              <li><strong>Terminaison :</strong> Une fois le programme terminé, le SE libère les ressources utilisées par le processus.</li>
+            </ol>
+          
+            <p><strong>Correction Exercice 3 :</strong></p>
+            <ul>
+              <li><strong>LAN (Local Area Network)</strong> : Un réseau local qui connecte des dispositifs dans un espace limité (bureau, école, maison). Exemple : un réseau Wi-Fi domestique.</li>
+              <li><strong>WAN (Wide Area Network)</strong> : Un réseau qui couvre une vaste zone géographique, comme l'Internet. Exemple : le réseau d’une entreprise reliant plusieurs bureaux à travers le monde.</li>
+              <li><strong>PAN (Personal Area Network)</strong> : Un réseau pour relier des appareils personnels sur une très courte distance. Exemple : connexion Bluetooth entre un smartphone et une montre connectée.</li>
+            </ul>
+          
+            <p><strong>Correction Exercice 4 :</strong></p>
+            <p>Le protocole TCP/IP est essentiel pour la communication sur Internet. Il garantit que les données sont envoyées de manière fiable et dans le bon ordre entre les machines. Les principales étapes sont :</p>
+            <ol>
+              <li><strong>Segmenter les données :</strong> Les données sont divisées en paquets appelés segments TCP.</li>
+              <li><strong>Adresser les paquets :</strong> Chaque paquet reçoit une adresse IP pour être acheminé vers la bonne destination.</li>
+              <li><strong>Transmission des paquets :</strong> Les paquets sont envoyés à travers le réseau à l'aide du protocole IP.</li>
+              <li><strong>Contrôle de la réception :</strong> Le récepteur vérifie si tous les paquets sont arrivés et dans le bon ordre. Si nécessaire, il demande la retransmission des paquets manquants.</li>
+              <li><strong>Reconstruction des données :</strong> Une fois tous les paquets reçus, ils sont assemblés pour reconstituer les données originales.</li>
+            </ol>
+          
+            <p><strong>Correction Exercice 5 :</strong></p>
+            <ul>
+              <li><strong>Serveur :</strong> Un dispositif qui fournit des services (applications, fichiers, etc.) à d'autres dispositifs appelés clients.</li>
+              <li><strong>Client :</strong> Un appareil ou un programme qui demande des services à un serveur.</li>
+              <li><strong>Routeur :</strong> Un appareil qui achemine les paquets de données entre les réseaux et les dispositifs.</li>
+              <li><strong>Switch :</strong> Un dispositif qui relie plusieurs appareils au sein d’un même réseau local (LAN) et facilite la communication entre eux.</li>
+            </ul></div>
+      </div>
+
+      <div class="chapter-block">
+        <h3>Chapitre 4 : Menaces courantes & protection</h3>
+        <button class="btn-toggle" onclick="toggleContent('chap4-cours')">Cours</button>
+        <div id="chap4-cours" class="toggle-content"><h4>1. Introduction aux menaces informatiques</h4>
+            <p>
+              Dans le monde numérique actuel, la sécurité informatique est devenue une priorité majeure pour protéger les données sensibles et les systèmes des attaques. Les menaces informatiques sont diverses et peuvent provenir de différents types de cybercriminels ou de vulnérabilités des systèmes. Dans ce cours, nous allons explorer les menaces les plus courantes et les méthodes pour les contrer.
+            </p>
+          
+            <h4>2. Types de menaces informatiques</h4>
+            <p>
+              Les menaces informatiques peuvent être classées en plusieurs catégories. Voici quelques-unes des plus courantes :
+            </p>
+            <ul>
+              <li><strong>Malware (logiciels malveillants) :</strong> Ce sont des programmes conçus pour perturber ou endommager des systèmes. Ils incluent des virus, des vers, des chevaux de Troie, et des ransomwares.</li>
+              <li><strong>Phishing :</strong> Une technique frauduleuse où l'attaquant tente de tromper la victime pour qu'elle fournisse des informations sensibles, telles que des mots de passe ou des numéros de carte de crédit.</li>
+              <li><strong>Ransomware :</strong> Un type de malware qui bloque l'accès à un système ou à des fichiers et exige un paiement (rançon) pour restaurer l'accès.</li>
+              <li><strong>Attaques DDoS (Distributed Denial of Service) :</strong> Des attaques où plusieurs systèmes sont utilisés pour saturer un serveur cible, rendant ainsi un service ou un réseau indisponible.</li>
+              <li><strong>Exploits de vulnérabilités :</strong> Ce sont des attaques qui exploitent des failles de sécurité dans des logiciels ou des systèmes pour obtenir un accès non autorisé.</li>
+              <li><strong>Spyware et Adware :</strong> Des logiciels espions collectant secrètement des informations sur l'utilisateur sans son consentement, souvent dans un but publicitaire ou malveillant.</li>
+            </ul>
+          
+            <h4>3. Méthodes de protection contre les menaces</h4>
+            <p>
+              Protéger ses systèmes contre les menaces informatiques nécessite une approche proactive et l'adoption de bonnes pratiques de sécurité. Voici quelques-unes des méthodes les plus courantes pour se protéger.
+            </p>
+          
+            <h5>3.1. Utilisation de logiciels de sécurité</h5>
+            <p>
+              Installer des logiciels antivirus et anti-malware fiables est essentiel pour détecter et neutraliser les menaces. Ces logiciels doivent être régulièrement mis à jour pour garantir qu'ils peuvent détecter les dernières menaces.
+            </p>
+          
+            <h5>3.2. Mise à jour régulière des systèmes et logiciels</h5>
+            <p>
+              Les mises à jour de sécurité sont cruciales pour corriger les vulnérabilités exploitées par les attaquants. Cela inclut la mise à jour du système d’exploitation, des logiciels applicatifs, et des firmwares des appareils réseau.
+            </p>
+          
+            <h5>3.3. Utilisation de pare-feu</h5>
+            <p>
+              Un pare-feu (firewall) sert à surveiller et contrôler le trafic réseau entrant et sortant de votre système ou réseau. Il bloque les connexions non autorisées et protège contre les attaques externes.
+            </p>
+          
+            <h5>3.4. Sensibilisation à la cybersécurité</h5>
+            <p>
+              La formation des utilisateurs à la cybersécurité est essentielle pour les protéger contre des menaces telles que le phishing et l'ingénierie sociale. Les employés doivent être capables de reconnaître les tentatives de fraude et de ne pas divulguer des informations sensibles.
+            </p>
+          
+            <h5>3.5. Sauvegarde des données</h5>
+            <p>
+              Des copies de sauvegarde régulières des données permettent de récupérer rapidement les informations en cas d'attaque par ransomware ou de défaillance système. Il est recommandé de stocker les sauvegardes à un endroit sécurisé, de préférence hors ligne.
+            </p>
+          
+            <h5>3.6. Chiffrement des données</h5>
+            <p>
+              Le chiffrement permet de rendre les données illisibles pour toute personne n’ayant pas la clé de déchiffrement. Il est essentiel pour protéger les données sensibles, notamment lors de leur transmission sur des réseaux non sécurisés.
+            </p>
+          
+            <h4>4. Conclusion</h4>
+            <p>
+              Les menaces informatiques sont de plus en plus sophistiquées, et il est crucial d’adopter une approche multi-couches pour se protéger. L’utilisation de logiciels de sécurité, la mise à jour régulière des systèmes, la sensibilisation à la cybersécurité et la protection des données par le chiffrement sont des éléments fondamentaux pour minimiser les risques.
+            </p>
+          </div>
+        <button class="btn-toggle" onclick="toggleContent('chap4-exo')">Exercices</button>
+        <div id="chap4-exo" class="toggle-content"> <h4>1. Identifier les menaces</h4>
+            <p>
+              Dans la liste suivante, identifiez et classifiez les types de menaces auxquels un utilisateur d'Internet pourrait être confronté :
+            </p>
+            <ul>
+              <li>Un logiciel qui bloque l'accès à un fichier et exige un paiement pour le déverrouiller.</li>
+              <li>Un e-mail prétendant provenir de votre banque vous demandant de mettre à jour vos informations de compte.</li>
+              <li>Un programme qui collecte secrètement vos habitudes de navigation et les transmet à des tiers à des fins publicitaires.</li>
+              <li>Une attaque par saturation d'un serveur pour le rendre hors ligne.</li>
+            </ul>
+            
+            <h4>2. Scénarios pratiques</h4>
+            <p>
+              Vous êtes le responsable informatique d'une entreprise. Votre équipe vient de recevoir plusieurs e-mails suspects. Quelle serait la première action que vous prendriez pour sécuriser les systèmes de l'entreprise ?
+            </p>
+            
+            <h4>3. Pratiques de sécurité</h4>
+            <p>
+              Expliquez en détail les trois principales méthodes que vous pouvez utiliser pour protéger un réseau contre les attaques DDoS. Justifiez chaque méthode choisie.
+            </p>
+            
+            <h4>4. Phishing</h4>
+            <p>
+              Qu'est-ce que le phishing et quelles sont les étapes qu'un utilisateur devrait suivre s'il reçoit un e-mail de phishing ?  
+            </p>
+            
+            <h4>5. Malware</h4>
+            <p>
+              Qu'est-ce qu'un malware et comment pouvez-vous vous protéger contre les malwares sur votre ordinateur personnel ?  
+            </p>
+          
+            <h4>Correction des exercices :</h4>
+            
+            <h5>1. Identifier les menaces :</h5>
+            <ul>
+              <li>Ransomware (logiciel de chiffrement qui demande une rançon) : Un logiciel qui bloque l'accès à un fichier et exige un paiement pour le déverrouiller.</li>
+              <li>Phishing : Un e-mail prétendant provenir de votre banque vous demandant de mettre à jour vos informations de compte.</li>
+              <li>Spyware (logiciel espion) : Un programme qui collecte secrètement vos habitudes de navigation et les transmet à des tiers à des fins publicitaires.</li>
+              <li>Attaque DDoS : Une attaque par saturation d'un serveur pour le rendre hors ligne.</li>
+            </ul>
+            
+            <h5>2. Scénarios pratiques :</h5>
+            <p>
+              La première action devrait être de signaler immédiatement l'incident et d'isoler tous les systèmes affectés. Ensuite, l'administrateur système devrait analyser les e-mails suspects pour détecter toute tentative de malware ou de phishing. Des outils de détection d'intrusion et un audit complet des systèmes doivent être effectués pour identifier toute compromission. Enfin, une communication claire doit être envoyée à tous les employés pour leur rappeler les bonnes pratiques de sécurité.
+            </p>
+          
+            <h5>3. Pratiques de sécurité contre les attaques DDoS :</h5>
+            <ul>
+              <li><strong>Utilisation d'un service de protection contre les attaques DDoS :</strong> De nombreux fournisseurs de services de sécurité offrent des protections spécialisées contre les attaques DDoS en filtrant et bloquant le trafic malveillant.</li>
+              <li><strong>Déploiement de pare-feu et de filtres :</strong> Configurer des pare-feu et des systèmes de filtrage de trafic pour limiter l'accès aux ressources de votre réseau et bloquer le trafic suspect.</li>
+              <li><strong>Redondance des serveurs et des ressources réseau :</strong> Augmenter la capacité des serveurs et des ressources réseau pour supporter une charge accrue, et répartir la charge entre plusieurs serveurs pour minimiser l'impact des attaques DDoS.</li>
+            </ul>
+          
+            <h5>4. Phishing :</h5>
+            <p>
+              Le phishing est une méthode utilisée par des cybercriminels pour tromper les utilisateurs afin qu'ils fournissent des informations sensibles, telles que des mots de passe ou des informations bancaires. Lorsqu'un utilisateur reçoit un e-mail suspect :
+              <ul>
+                <li>Ne pas cliquer sur les liens dans l'e-mail, surtout s'il semble être une demande non sollicitée.</li>
+                <li>Vérifier l'adresse e-mail de l'expéditeur et rechercher des incohérences (ex. : des erreurs dans l'adresse ou le nom de l'expéditeur).</li>
+                <li>Contacter directement l'organisation mentionnée dans l'e-mail par des moyens officiels (site web ou téléphone) pour vérifier la légitimité de la demande.</li>
+                <li>Ne jamais fournir d'informations sensibles par e-mail.</li>
+              </ul>
+            </p>
+          
+            <h5>5. Malware :</h5>
+            <p>
+              Un malware (ou logiciel malveillant) est un programme conçu pour causer des dommages à un ordinateur ou à un réseau. Pour se protéger contre les malwares :
+              <ul>
+                <li>Installer un logiciel antivirus à jour et l'utiliser pour effectuer des analyses régulières.</li>
+                <li>Ne pas ouvrir de pièces jointes d'e-mails provenant de sources inconnues.</li>
+                <li>Éviter de télécharger des fichiers ou des logiciels à partir de sites non sécurisés.</li>
+                <li>Utiliser un pare-feu pour filtrer les connexions réseau non autorisées.</li>
+                <li>Mettre à jour régulièrement tous les logiciels, y compris le système d'exploitation, pour corriger les vulnérabilités exploitables par les malwares.</li>
+              </ul>
+            </p></div>
+      </div>
+
+      <div class="chapter-block">
+        <h3>Chapitre 5 : Tests d'intrusion & analyse des vulnérabilités</h3>
+        <button class="btn-toggle" onclick="toggleContent('chap5-cours')">Cours</button>
+        <div id="chap5-cours" class="toggle-content"><h3>Tests d'intrusion et analyse des vulnérabilités</h3>
+
+            <h4>Introduction aux tests d'intrusion</h4>
+            <p>
+            Les tests d'intrusion, ou "pentests" (penetration tests), sont des simulations d'attaques menées sur un système informatique afin de découvrir des vulnérabilités exploitables. L'objectif est de tester la robustesse des systèmes en imitant les actions d'un attaquant malveillant. Contrairement aux simples analyses de vulnérabilités, les tests d'intrusion vont au-delà de la détection ; ils incluent l'exploitation de ces vulnérabilités pour évaluer l'impact réel sur l'entreprise.
+            </p>
+            
+            <h4>Phases d'un test d'intrusion</h4>
+            <p>Un test d'intrusion comporte généralement plusieurs étapes clés :</p>
+            <ol>
+                <li><strong>Planification :</strong> Cette phase initiale détermine les objectifs du test, les systèmes à tester, les contraintes légales et éthiques, ainsi que les méthodes d'attaque autorisées.</li>
+                <li><strong>Collecte d'informations :</strong> Il s'agit de recueillir le plus d'informations possibles sur la cible (domaines, adresses IP, services, versions de logiciels, etc.). Cette étape inclut des outils comme WHOIS, Nslookup, et Nmap.</li>
+                <li><strong>Identification des vulnérabilités :</strong> Grâce aux outils de scan de vulnérabilités comme Nessus ou OpenVAS, les pentesteurs identifient les points faibles dans l'infrastructure.</li>
+                <li><strong>Exploitation :</strong> Cette étape consiste à exploiter les vulnérabilités identifiées pour obtenir un accès non autorisé ou un contrôle sur le système ciblé.</li>
+                <li><strong>Post-exploitation :</strong> Une fois l'accès obtenu, l'objectif est d'exploiter le système pour simuler un impact réel, comme le vol de données sensibles ou l'injection de malwares.</li>
+                <li><strong>Reporting :</strong> Après l'attaque, un rapport détaillant les vulnérabilités, les méthodes d'attaque et les recommandations pour améliorer la sécurité du système est fourni.</li>
+            </ol>
+            
+            <h4>Outils courants utilisés pour les tests d'intrusion</h4>
+            <p>
+            Les tests d'intrusion s'appuient sur une série d'outils pour simuler des attaques et analyser les vulnérabilités. Les plus utilisés sont :
+            </p>
+            <ul>
+                <li><strong>Metasploit :</strong> Un cadre d'exploitation qui permet aux pentesteurs d'exploiter des vulnérabilités connues sur des systèmes distants.</li>
+                <li><strong>Nmap :</strong> Un outil pour scanner les réseaux et identifier les services actifs et leurs vulnérabilités potentielles.</li>
+                <li><strong>Nessus :</strong> Un scanner de vulnérabilités qui permet de détecter un large éventail de vulnérabilités de sécurité dans les systèmes.</li>
+                <li><strong>Wireshark :</strong> Un analyseur de paquets réseau qui permet de capturer et d'analyser le trafic réseau pour détecter des anomalies.</li>
+                <li><strong>Burp Suite :</strong> Un ensemble d'outils pour tester la sécurité des applications web, en particulier pour les attaques de type XSS, SQL Injection, etc.</li>
+            </ul>
+            
+            <h4>Analyse des vulnérabilités</h4>
+            <p>
+            L'analyse des vulnérabilités est un processus qui consiste à scanner un système pour en identifier les points faibles, souvent avant de mener des tests d'intrusion. Elle vise à repérer les failles de sécurité pouvant être exploitées par des attaquants. Cette analyse est réalisée à l'aide de différents outils automatisés qui permettent de détecter des vulnérabilités dans le réseau, les applications, les bases de données, et plus encore.
+            </p>
+            
+            <h4>Types de vulnérabilités courantes</h4>
+            <p>
+            Voici quelques-unes des vulnérabilités les plus courantes détectées lors de l'analyse des vulnérabilités :
+            </p>
+            <ul>
+                <li><strong>Injection SQL :</strong> Une attaque où des instructions SQL malveillantes sont insérées dans des champs de saisie, permettant d'accéder à des bases de données sensibles.</li>
+                <li><strong>Cross-Site Scripting (XSS) :</strong> Une vulnérabilité où des scripts malveillants sont injectés dans des pages web vues par d'autres utilisateurs, souvent pour voler des informations comme les cookies.</li>
+                <li><strong>Vulnérabilités de contrôle d'accès :</strong> Ces vulnérabilités surviennent lorsque les contrôles de sécurité des accès ne sont pas correctement implémentés, permettant à des utilisateurs non autorisés d'accéder à des ressources sensibles.</li>
+                <li><strong>Vulnérabilités de service (DoS, DDoS) :</strong> Les attaques par déni de service ou de service distribué visent à rendre un système ou un service indisponible pour les utilisateurs légitimes.</li>
+                <li><strong>Failles de sécurité des applications :</strong> Les erreurs de codage dans les applications peuvent exposer des failles comme le stockage non sécurisé de mots de passe, les mauvais contrôles d'authentification, etc.</li>
+            </ul>
+            
+            <h4>Techniques de gestion des vulnérabilités</h4>
+            <p>
+            Une fois les vulnérabilités identifiées, il est essentiel de mettre en place des mesures pour les corriger. Voici quelques techniques pour gérer les vulnérabilités :
+            </p>
+            <ul>
+                <li><strong>Patch Management :</strong> Installer rapidement les mises à jour de sécurité pour les systèmes et logiciels afin de corriger les failles connues.</li>
+                <li><strong>Configuration sécurisée :</strong> Configurer les systèmes et logiciels de manière à réduire les risques d'exploitation des vulnérabilités (désactivation des services inutiles, renforcement des paramètres de sécurité, etc.).</li>
+                <li><strong>Tests continus :</strong> Effectuer régulièrement des tests d'intrusion et des analyses de vulnérabilités pour détecter de nouvelles failles de sécurité et évaluer l'efficacité des mesures prises.</li>
+                <li><strong>Formation du personnel :</strong> Sensibiliser les employés à la sécurité pour éviter les erreurs humaines qui peuvent conduire à des vulnérabilités, comme l'utilisation de mots de passe faibles ou le clic sur des liens malveillants.</li>
+            </ul>
+            
+            <h4>Conclusion</h4>
+            <p>
+            Les tests d'intrusion et l'analyse des vulnérabilités sont des éléments clés de la gestion de la sécurité informatique. Ils permettent d'identifier les faiblesses d'un système avant qu'elles ne soient exploitées par des attaquants. Pour être efficaces, ces tests doivent être réalisés régulièrement et en utilisant des outils adaptés. Une fois les vulnérabilités identifiées, des mesures appropriées doivent être prises pour sécuriser les systèmes et éviter les intrusions.
+            </p>
+            </div>
+        <button class="btn-toggle" onclick="toggleContent('chap5-exo')">Exercices</button>
+        <div id="chap5-exo" class="toggle-content"> <h1>Exercices : Tests d'intrusion et analyse des vulnérabilités</h1>
+        </header>
+      
+        <main>
+          <section>
+            <h2>Exercice 1 : Identification des étapes d'un test d'intrusion</h2>
+            <p><strong>Objectif :</strong> Tester la compréhension des étapes d'un test d'intrusion.</p>
+            <p><strong>Question :</strong></p>
+            <p>Classez les étapes suivantes dans l'ordre correct d'un test d'intrusion :</p>
+            <ul>
+              <li>1. Planification</li>
+              <li>2. Collecte d'informations</li>
+              <li>3. Exploitation</li>
+              <li>4. Post-exploitation</li>
+              <li>5. Identification des vulnérabilités</li>
+              <li>6. Reporting</li>
+            </ul>
+          </section>
+      
+          <section>
+            <h2>Exercice 2 : Analyse d'une vulnérabilité de sécurité</h2>
+            <p><strong>Objectif :</strong> Tester la capacité à identifier et analyser une vulnérabilité.</p>
+            <p><strong>Question :</strong></p>
+            <p>Vous réalisez un test d'intrusion sur une application web. Vous découvrez une vulnérabilité de type <strong>Cross-Site Scripting (XSS)</strong> dans un formulaire de contact. Quelle est la principale conséquence de cette vulnérabilité et comment l'exploiteriez-vous ?</p>
+          </section>
+      
+          <section>
+            <h2>Exercice 3 : Identification des outils utilisés dans les tests d'intrusion</h2>
+            <p><strong>Objectif :</strong> Vérifier la connaissance des outils utilisés dans un test d'intrusion.</p>
+            <p><strong>Question :</strong></p>
+            <p>Associez chaque outil à sa fonction correspondante :</p>
+            <ul>
+              <li>1. Metasploit</li>
+              <li>2. Nmap</li>
+              <li>3. Nessus</li>
+              <li>4. Burp Suite</li>
+              <li>5. Wireshark</li>
+            </ul>
+            <p>Choisissez parmi ces fonctions :</p>
+            <ul>
+              <li>a. Scanner de vulnérabilités</li>
+              <li>b. Exploit framework</li>
+              <li>c. Analyseur de paquets réseau</li>
+              <li>d. Scanner de ports et services</li>
+              <li>e. Testeur de sécurité d'applications web</li>
+            </ul>
+          </section>
+      
+          <section>
+            <h2>Exercice 4 : Identification d'une vulnérabilité de type injection SQL</h2>
+            <p><strong>Objectif :</strong> Tester la capacité à identifier et comprendre une vulnérabilité d'injection SQL.</p>
+            <p><strong>Question :</strong></p>
+            <p>Sur une page web de connexion, un utilisateur entre les informations suivantes :</p>
+            <ul>
+              <li><strong>Nom d'utilisateur</strong> : admin</li>
+              <li><strong>Mot de passe</strong> : ' OR 1=1 --</li>
+            </ul>
+            <p>Que pourrait faire un attaquant en utilisant cette méthode ? Identifiez et expliquez la vulnérabilité.</p>
+          </section>
+      
+          <section>
+            <h2>Exercice 5 : Mise en place de mesures pour protéger un système</h2>
+            <p><strong>Objectif :</strong> Tester la compréhension des mesures de sécurité à mettre en place après un test d'intrusion.</p>
+            <p><strong>Question :</strong></p>
+            <p>Après un test d'intrusion, vous avez découvert que plusieurs services non sécurisés sont actifs sur le serveur de l'entreprise. Que devez-vous faire pour sécuriser ce serveur ?</p>
+          </section>
+      
+          <section>
+            <h2>Correction des Exercices</h2>
+      
+            <h3>Correction de l'exercice 1 : Identification des étapes d'un test d'intrusion</h3>
+            <p><strong>Ordre correct :</strong></p>
+            <ol>
+              <li>Planification</li>
+              <li>Collecte d'informations</li>
+              <li>Identification des vulnérabilités</li>
+              <li>Exploitation</li>
+              <li>Post-exploitation</li>
+              <li>Reporting</li>
+            </ol>
+      
+            <h3>Correction de l'exercice 2 : Analyse d'une vulnérabilité de sécurité</h3>
+            <p><strong>Conséquence :</strong> XSS permet à un attaquant de voler des informations sensibles comme des cookies ou des données de session, ou d'effectuer des actions malveillantes dans le navigateur de l'utilisateur.</p>
+            <p><strong>Exploitation :</strong> Un script malveillant est injecté dans un formulaire de saisie, ce qui permet de l'exécuter dans le navigateur de l'utilisateur.</p>
+      
+            <h3>Correction de l'exercice 3 : Identification des outils utilisés dans les tests d'intrusion</h3>
+            <ul>
+              <li>1. Metasploit - b. Exploit framework</li>
+              <li>2. Nmap - d. Scanner de ports et services</li>
+              <li>3. Nessus - a. Scanner de vulnérabilités</li>
+              <li>4. Burp Suite - e. Testeur de sécurité d'applications web</li>
+              <li>5. Wireshark - c. Analyseur de paquets réseau</li>
+            </ul>
+      
+            <h3>Correction de l'exercice 4 : Identification d'une vulnérabilité de type injection SQL</h3>
+            <p><strong>Vulnérabilité :</strong> Injection SQL permettant à l'attaquant de contourner l'authentification et d'accéder à des informations sensibles.</p>
+            <p><strong>Exploitation :</strong> L'attaque ' OR 1=1 -- permet de manipuler la requête SQL pour valider automatiquement la connexion de l'attaquant.</p>
+      
+            <h3>Correction de l'exercice 5 : Mise en place de mesures pour protéger un système</h3>
+            <p><strong>Mesures de sécurité :</strong></p>
+            <ul>
+              <li>Désactivation des services non nécessaires.</li>
+              <li>Configuration des pare-feu pour restreindre l'accès aux services.</li>
+              <li>Mise à jour régulière des logiciels pour corriger les vulnérabilités.</li>
+              <li>Mise en place d'un contrôle d'accès strict.</li>
+              <li>Tests de vulnérabilité réguliers pour détecter de nouvelles failles.</li>
+            </ul>
+      </div>
+      </div>
+
+      
+      <div class="chapter-block">
+        <h3>Chapitre 6 :Bonnes pratiques et hygiène numérique</h3>
+        <button class="btn-toggle" onclick="toggleContent('chap6-cours')">Cours</button>
+        <div id="chap6-cours" class="toggle-content"><h3>Bonnes pratiques et hygiène numérique</h3>
+
+            <h4>1. Introduction</h4>
+            <p>L'hygiène numérique regroupe un ensemble de bonnes pratiques à adopter pour utiliser les outils numériques de manière sécurisée, efficace et responsable. Dans un monde de plus en plus connecté, ces habitudes permettent de se protéger contre les menaces informatiques et de préserver sa vie privée.</p>
+            
+            <h4>2. Gestion des mots de passe</h4>
+            <ul>
+                <li>Utiliser des mots de passe forts : au moins 12 caractères, avec majuscules, minuscules, chiffres et symboles.</li>
+                <li>Ne jamais utiliser le même mot de passe pour plusieurs comptes.</li>
+                <li>Changer régulièrement ses mots de passe, surtout après une suspicion de fuite.</li>
+                <li>Utiliser un gestionnaire de mots de passe pour stocker ses identifiants en toute sécurité.</li>
+            </ul>
+            
+            <h4>3. Mise à jour régulière des logiciels</h4>
+            <ul>
+                <li>Installer les mises à jour dès qu'elles sont disponibles.</li>
+                <li>Activer les mises à jour automatiques si possible.</li>
+                <li>Vérifier régulièrement les logiciels installés et désinstaller ceux qui ne sont plus utilisés.</li>
+            </ul>
+            
+            <h4>4. Sauvegarde des données</h4>
+            <ul>
+                <li>Effectuer des sauvegardes régulières de ses fichiers importants.</li>
+                <li>Utiliser un disque dur externe ou un service cloud sécurisé.</li>
+                <li>Conserver plusieurs copies des données (principe du 3-2-1 : 3 copies, 2 supports différents, 1 copie hors site).</li>
+            </ul>
+            
+            <h4>5. Navigation sécurisée</h4>
+            <ul>
+                <li>Utiliser un navigateur à jour et sécurisé.</li>
+                <li>Vérifier l'adresse des sites web (https://) avant de saisir des données sensibles.</li>
+                <li>Éviter de cliquer sur des liens suspects ou non sollicités.</li>
+                <li>Installer un bloqueur de publicités et un anti-tracker pour limiter les risques.</li>
+            </ul>
+            
+            <h4>6. Sécurité des appareils</h4>
+            <ul>
+                <li>Protéger ses appareils (ordinateur, téléphone, tablette) avec un mot de passe ou une authentification biométrique.</li>
+                <li>Installer un antivirus et un pare-feu pour renforcer la sécurité.</li>
+                <li>Verrouiller l'écran lorsqu’on quitte son appareil.</li>
+            </ul>
+            
+            <h4>7. Protection des données personnelles</h4>
+            <ul>
+                <li>Limiter les informations personnelles partagées en ligne (réseaux sociaux, formulaires, etc.).</li>
+                <li>Lire les conditions d'utilisation avant d'accepter les autorisations d'une application.</li>
+                <li>Utiliser des alias ou des pseudonymes quand c'est possible.</li>
+                <li>Se méfier des demandes d'informations par email ou téléphone.</li>
+            </ul>
+            
+            <h4>8. Utilisation des emails</h4>
+            <ul>
+                <li>Ne pas ouvrir les pièces jointes ou cliquer sur des liens dans des emails suspects.</li>
+                <li>Vérifier l'adresse de l’expéditeur (souvent usurpée dans les attaques de phishing).</li>
+                <li>Utiliser une adresse email secondaire pour les inscriptions sur des sites non essentiels.</li>
+            </ul>
+            
+            <h4>9. Utilisation responsable des réseaux sociaux</h4>
+            <ul>
+                <li>Configurer correctement les paramètres de confidentialité.</li>
+                <li>Réfléchir avant de publier une photo, une vidéo ou une information personnelle.</li>
+                <li>Éviter de partager des données sensibles comme son adresse ou son emploi du temps.</li>
+            </ul>
+            
+            <h4>10. Bonnes pratiques au travail ou à l’école</h4>
+            <ul>
+                <li>Ne pas utiliser ses identifiants professionnels sur des appareils personnels non sécurisés.</li>
+                <li>Respecter les chartes informatiques et politiques de sécurité de l’établissement.</li>
+                <li>Verrouiller sa session dès qu’on quitte son poste.</li>
+            </ul>
+            
+            <h4>11. Conclusion</h4>
+            <p>Adopter une bonne hygiène numérique, c'est comme adopter une bonne hygiène de vie : cela protège, prévient, et permet une meilleure utilisation des outils numériques. Ces habitudes sont essentielles pour garantir la sécurité, la confidentialité et la pérennité de nos données dans un monde connecté.</p></div>
+        <button class="btn-toggle" onclick="toggleContent('chap6-exo')">Exercices</button>
+        <div id="chap6-exo" class="toggle-content"><h3>Exercices : Bonnes pratiques et hygiène numérique</h3>
+
+            <h4>Exercice 1 : Choisir les bons mots de passe</h4>
+            <p>Parmi les mots de passe suivants, lesquels sont considérés comme forts ?</p>
+            <ol>
+                <li>12345678</li>
+                <li>M0nC0de#2025</li>
+                <li>azerty</li>
+                <li>Pa$$w0rd!</li>
+            </ol>
+            
+            <h4>Exercice 2 : Comportements à adopter</h4>
+            <p>Indique si les affirmations suivantes sont <strong>VRAIES</strong> ou <strong>FAUSSES</strong>.</p>
+            <ol>
+                <li>Il est conseillé d’utiliser le même mot de passe pour tous ses comptes.</li>
+                <li>On doit toujours mettre à jour ses logiciels dès qu'une mise à jour est disponible.</li>
+                <li>Il est inutile de sauvegarder ses données si on a un antivirus.</li>
+                <li>Il faut vérifier l’authenticité d’un lien avant de cliquer dessus.</li>
+            </ol>
+            
+            <h4>Exercice 3 : Bonnes pratiques au travail</h4>
+            <p>Coche les bonnes pratiques que tu dois adopter dans un environnement professionnel :</p>
+            <ul>
+                <li>[ ] Laisser son ordinateur déverrouillé quand on s’absente</li>
+                <li>[ ] Sauvegarder ses données régulièrement</li>
+                <li>[ ] Utiliser une clé USB trouvée dans la rue</li>
+                <li>[ ] Se méfier des emails non sollicités</li>
+            </ul>
+            
+            <h4>Exercice 4 : Cas pratique</h4>
+            <p>Tu reçois un email de ta "banque" te demandant de confirmer tes informations via un lien. Que fais-tu ?</p>
+            <ol type="a">
+                <li>Je clique immédiatement sur le lien et je saisis mes informations</li>
+                <li>J’ignore l’email et je le supprime</li>
+                <li>Je vérifie l’adresse de l’expéditeur et je contacte ma banque via un canal officiel</li>
+            </ol>
+            
+            <h4>✅ Corrigés</h4>
+            
+            <h5>Correction Exercice 1 :</h5>
+            <ul>
+                <li><strong>12345678</strong> ❌ trop simple</li>
+                <li><strong>M0nC0de#2025</strong> ✅ mot de passe fort</li>
+                <li><strong>azerty</strong> ❌ mot courant</li>
+                <li><strong>Pa$$w0rd!</strong> ✅ acceptable (mais un peu trop commun)</li>
+            </ul>
+            
+            <h5>Correction Exercice 2 :</h5>
+            <ol>
+                <li>❌ FAUX</li>
+                <li>✅ VRAI</li>
+                <li>❌ FAUX</li>
+                <li>✅ VRAI</li>
+            </ol>
+            
+            <h5>Correction Exercice 3 :</h5>
+            <ul>
+                <li>❌ Laisser son ordinateur déverrouillé</li>
+                <li>✅ Sauvegarder ses données</li>
+                <li>❌ Utiliser une clé USB inconnue</li>
+                <li>✅ Se méfier des emails suspects</li>
+            </ul>
+            
+            <h5>Correction Exercice 4 :</h5>
+            <p><strong>Réponse correcte :</strong> c) Je vérifie l’adresse de l’expéditeur et je contacte ma banque via un canal officiel</p></div>
+      </div>
+
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Coder Facile. Tous droits réservés.
+  </footer>
+</body>
+</html>
